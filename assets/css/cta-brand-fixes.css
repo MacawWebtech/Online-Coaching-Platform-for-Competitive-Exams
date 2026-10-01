@@ -270,33 +270,34 @@ body .site-footer.site-footer > .container {
   }
 }
 
-/* Logo visibility: footer is always dark, so its wordmark must be light.
-   Header wordmark turns light in dark mode. */
-body .site-footer.site-footer .brand,
-body .site-footer.site-footer .brand :is(.brand-name,.brand-dot) {
+/* Logo visibility. Footer follows the theme: light footer in light mode, dark footer in dark mode. */
+/* Light mode: navy wordmark, navy tile with white icon */
+body:not(.dark) .site-footer.site-footer .brand,
+body:not(.dark) .site-footer.site-footer .brand :is(.brand-name,.brand-dot) {
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+  opacity: 1 !important;
+}
+body:not(.dark) .site-footer.site-footer .brand .brand-mark {
+  background: #173f67 !important;
+  color: #fff !important;
+  border-color: #173f67 !important;
+}
+body:not(.dark) .site-footer.site-footer .brand .brand-mark svg {
+  color: #fff !important;
+}
+/* Dark mode: white wordmark, white tile with navy icon (footer and header) */
+body.dark.dark :is(.site-footer,.site-header) .brand,
+body.dark.dark :is(.site-footer,.site-header) .brand :is(.brand-name,.brand-dot) {
   color: #fff !important;
   -webkit-text-fill-color: #fff !important;
   opacity: 1 !important;
 }
-body .site-footer.site-footer .brand .brand-mark {
+body.dark.dark :is(.site-footer,.site-header) .brand .brand-mark {
   background: #fff !important;
   color: #173f67 !important;
   border-color: #fff !important;
 }
-body .site-footer.site-footer .brand .brand-mark svg {
-  color: #173f67 !important;
-}
-body.dark.dark .site-header .brand,
-body.dark.dark .site-header .brand :is(.brand-name,.brand-dot) {
-  color: #fff !important;
-  -webkit-text-fill-color: #fff !important;
-  opacity: 1 !important;
-}
-body.dark.dark .site-header .brand .brand-mark {
-  background: #fff !important;
-  color: #173f67 !important;
-  border-color: #fff !important;
-}
-body.dark.dark .site-header .brand .brand-mark svg {
+body.dark.dark :is(.site-footer,.site-header) .brand .brand-mark svg {
   color: #173f67 !important;
 }

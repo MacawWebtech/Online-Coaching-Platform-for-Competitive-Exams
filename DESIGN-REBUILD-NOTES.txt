@@ -1,0 +1,1 @@
+Page 3: Courses rebuilt with independent editorial structure and navy/sand brand system. Reference direction: goal-based learning paths and course-specific programme details. Frontend demo only; durations illustrative. No deployment. Remaining inner pages are not yet rebuilt page by page.

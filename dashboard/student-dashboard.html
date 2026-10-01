@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>
+      Dashboard | Examora
+    </title>
+<meta content="noindex" name="robots"/>
+<link href="../assets/images/examora-icon.svg" rel="icon"/>
+<link href="../assets/css/style.css" rel="stylesheet"/><link href="../assets/css/academy.css" rel="stylesheet"/><link href="../assets/css/editorial-2026.css" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/css/final-qc-fixes.css">
+<link href="../assets/css/cta-brand-fixes.css?v=20261001" rel="stylesheet"/>
+</head>
+<body class="redesigned-app">
+<div class="app-shell">
+<aside class="app-sidebar">
+<a class="brand" href="../index.html"><span aria-hidden="true" class="brand-mark"><svg fill="none" height="34" viewbox="0 0 40 40" width="34"><path d="M7 31 20 6l13 25H7Z" stroke="currentColor" stroke-linejoin="round" stroke-width="2.8"></path><path d="M14 25h12M17 19h6" stroke="currentColor" stroke-linecap="round" stroke-width="2.8"></path></svg></span><span class="brand-name">Examora<span class="brand-dot">.</span></span></a>
+<div class="side-label">
+          Student workspace
+        </div>
+<nav class="side-nav">
+<a class="active" href="student-dashboard.html">
+<b>
+              ⌂
+            </b>
+<span>
+              Overview
+            </span>
+</a>
+<a class="" href="student-courses.html">
+<b>
+              ▤
+            </b>
+<span>
+              My Courses
+            </span>
+</a>
+<a class="" href="student-tests.html">
+<b>
+              ✓
+            </b>
+<span>
+              Mock Tests
+            </span>
+</a>
+<a class="" href="student-results.html">
+<b>
+              ◉
+            </b>
+<span>
+              Results
+            </span>
+</a>
+<a class="" href="student-analytics.html">
+<b>
+              ▥
+            </b>
+<span>
+              Analytics
+            </span>
+</a>
+<a class="" href="student-resources.html">
+<b>
+              ⇩
+            </b>
+<span>
+              Resources
+            </span>
+</a>
+<a class="" href="student-profile.html">
+<b>
+              ☺
+            </b>
+<span>
+              Profile
+            </span>
+</a>
+</nav>
+<div class="side-label">
+          System
+        </div>
+<nav class="side-nav">
+<a href="../index.html">
+<b>
+              ↗
+            </b>
+<span>
+              Public Site
+            </span>
+</a>
+<a href="../login.html">
+<b>
+              ⇥
+            </b>
+<span>
+              Logout
+            </span>
+</a>
+</nav>
+</aside>
+<main class="app-main">
+<header class="app-topbar">
+<div>
+<b>
+              Student Dashboard
+            </b>
+<div class="small muted">
+              Welcome back to your preparation workspace
+            </div>
+</div>
+<div style="display:flex;gap:8px;align-items:center">
+<button aria-label="Toggle RTL" class="icon-btn" onclick="toggleRTL()" title="RTL"><span class="rtl-name">RTL</span></button>
+<button aria-label="Toggle dark mode" class="icon-btn" onclick="toggleTheme()" title="Theme"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M20.985 12.486A9 9 0 0 1 11.514 3.015 9 9 0 1 0 20.985 12.486Z"></path></svg></button>
+<button aria-label="Notifications" class="icon-btn" onclick="toggleNotifications(this)" style="position:relative" title="Notifications"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"></path></svg></button>
+<a aria-label="Open profile" class="avatar" href="student-profile.html"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="20"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+</div>
+</header>
+<div class="app-content">
+<div style="display:flex;justify-content:space-between;gap:18px;align-items:end;flex-wrap:wrap">
+<div>
+<span class="eyebrow">
+                Tuesday, Sep 8
+              </span>
+<h1 style="margin:.2rem 0">
+                Good morning, John 👋
+              </h1>
+<p class="muted" style="margin:0">
+                Ready for today's preparation?
+              </p>
+</div>
+<a class="btn btn-primary" href="test-interface.html">
+              Start a Mock Test
+            </a>
+</div>
+<div class="stat-grid" style="margin-top:22px">
+<div class="stat">
+<span class="muted small">
+                Study Streak
+              </span>
+<div class="big">
+                12 days 🔥
+              </div>
+<span class="badge green">
+                Personal best
+              </span>
+</div>
+<div class="stat">
+<span class="muted small">
+                Tests Completed
+              </span>
+<div class="big">
+                24
+              </div>
+<span class="muted small">
+                +4 this week
+              </span>
+</div>
+<div class="stat">
+<span class="muted small">
+                Average Score
+              </span>
+<div class="big">
+                78%
+              </div>
+<span class="badge green">
+                +6%
+              </span>
+</div>
+<div class="stat">
+<span class="muted small">
+                Current Rank
+              </span>
+<div class="big">
+                #124
+              </div>
+<span class="muted small">
+                Top 8%
+              </span>
+</div>
+</div>
+<div class="dash-grid">
+<section class="panel">
+<div style="display:flex;justify-content:space-between">
+<div>
+<h2 style="margin:0">
+                    Continue Learning
+                  </h2>
+<p class="muted small">
+                    Your active course
+                  </p>
+</div>
+<span class="badge">
+                  72%
+                </span>
+</div>
+<div style="padding:20px;border:2px solid var(--line);border-radius:18px">
+<span class="badge">
+                  SSC CGL
+                </span>
+<h3>
+                  Quantitative Aptitude Mastery
+                </h3>
+<p class="muted">
+                  Next: Time &amp; Work — Pipes and Cisterns
+                </p>
+<div class="progressbar">
+<span style="width:72%">
+</span>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:12px">
+<span class="small muted">
+                    38 of 52 lessons
+                  </span>
+<a class="btn btn-primary" href="student-courses.html">
+                    Continue
+                  </a>
+</div>
+</div>
+<h2 style="margin-top:28px">
+                Performance Trend
+              </h2>
+<div class="chart-box">
+<div class="chart-col">
+<i style="height:48%">
+</i>
+<span>
+                    T1
+                  </span>
+</div>
+<div class="chart-col">
+<i style="height:55%">
+</i>
+<span>
+                    T2
+                  </span>
+</div>
+<div class="chart-col">
+<i style="height:58%">
+</i>
+<span>
+                    T3
+                  </span>
+</div>
+<div class="chart-col">
+<i style="height:66%">
+</i>
+<span>
+                    T4
+                  </span>
+</div>
+<div class="chart-col">
+<i style="height:73%">
+</i>
+<span>
+                    T5
+                  </span>
+</div>
+<div class="chart-col">
+<i style="height:78%">
+</i>
+<span>
+                    T6
+                  </span>
+</div>
+<div class="chart-col">
+<i style="height:82%">
+</i>
+<span>
+                    T7
+                  </span>
+</div>
+</div>
+</section>
+<aside class="panel">
+<h2 style="margin-top:0">
+                Today's Plan
+              </h2>
+<div class="schedule-item">
+<b>
+                  09:30
+                </b>
+<div>
+<b>
+                    Quantitative
+                  </b>
+<div class="small muted">
+                    30 min
+                  </div>
+</div>
+<span class="badge green">
+                  Done
+                </span>
+</div>
+<div class="schedule-item">
+<b>
+                  11:30
+                </b>
+<div>
+<b>
+                    Mock Test
+                  </b>
+<div class="small muted">
+                    60 min
+                  </div>
+</div>
+<a class="btn btn-light" href="test-interface.html">
+                  Start
+                </a>
+</div>
+<div class="schedule-item">
+<b>
+                  16:00
+                </b>
+<div>
+<b>
+                    Reasoning Revision
+                  </b>
+<div class="small muted">
+                    30 min
+                  </div>
+</div>
+<span class="badge">
+                  Next
+                </span>
+</div>
+<h3>
+                Weak topics
+              </h3>
+<div class="chip-row">
+<span class="chip">
+                  Probability
+                </span>
+<span class="chip">
+                  Sentence Correction
+                </span>
+<span class="chip">
+                  Current Affairs
+                </span>
+</div>
+</aside>
+</div>
+</div>
+<nav class="bottom-nav">
+<a href="student-dashboard.html">
+<b>
+              ⌂
+            </b>
+            Home
+          </a>
+<a href="student-courses.html">
+<b>
+              ▤
+            </b>
+            Courses
+          </a>
+<a href="student-tests.html">
+<b>
+              ✓
+            </b>
+            Tests
+          </a>
+<a href="student-results.html">
+<b>
+              ◉
+            </b>
+            Results
+          </a>
+<a href="student-profile.html">
+<b>
+              ☺
+            </b>
+            Profile
+          </a>
+</nav>
+</main>
+</div>
+<script src="../assets/js/main.js"></script>
+<button aria-label="Toggle sidebar" class="dashboard-menu" onclick="toggleDashboardMenu()" type="button">☰</button><script defer src="../assets/js/academy.js"></script><script src="../assets/js/final-qc-fixes.js" defer></script>
+</body>
+</html>

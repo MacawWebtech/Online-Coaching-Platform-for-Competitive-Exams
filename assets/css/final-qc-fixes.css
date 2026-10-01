@@ -1,0 +1,4272 @@
+/* Examora final QC pass — alignment, responsive grids, dark contrast, restrained motion */
+:root{--qc-primary:#173f67;--qc-secondary:#f4efe6;--qc-ink:#101214;--qc-bg:#fff;--qc-line:#18202a;--qc-muted:#4d5967}
+html{overflow-x:hidden} body{overflow-x:hidden} *,*:before,*:after{box-sizing:border-box} img{max-width:100%;height:auto} h1,h2,h3,h4,p{overflow-wrap:normal;word-break:normal;hyphens:none}.container{width:min(100% - 40px,1440px)!important;margin-inline:auto!important}.section,.new-section,.bento-shell{padding-block:clamp(44px,6vw,82px)!important}.section+.section,.new-section+.new-section{margin-top:0!important}
+/* RTL control is text, equal control height */
+.rtl-toggle{width:auto!important;min-width:44px!important;padding-inline:10px!important;font-weight:800!important;font-size:12px!important;letter-spacing:.06em}.rtl-toggle svg{display:none!important}
+/* shared text rhythm */
+.new-section-head,.bento-section-title{align-items:start!important}.new-section-head h2,.bento-section-title h2{margin-top:10px!important}.new-section-head p,.bento-section-title p{color:var(--qc-muted)!important;line-height:1.65!important}.new-kicker,.bento-kicker,.eyebrow{line-height:1.4!important}.text-link,.btn{white-space:normal}
+/* global equal card behavior */
+.course-grid,.faculty-grid,.result-grid,.blog-grid,.price-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important;align-items:stretch!important}.course-card,.faculty-card,.result-card,.blog-card,.price-card{width:100%!important;max-width:none!important;height:100%!important;min-width:0!important;display:flex!important;flex-direction:column!important}.course-card img,.faculty-card img,.blog-card img{width:100%!important;aspect-ratio:16/9!important;object-fit:cover!important}.course-card .text-link,.faculty-card .text-link,.blog-card .text-link{margin-top:auto!important}
+/* faculty directory: never mixed spans */
+.faculty-grid>*{grid-column:auto!important;grid-row:auto!important}.faculty-card{padding:18px!important}.faculty-card>img{border-radius:14px!important;margin-bottom:18px!important}.faculty-card p{line-height:1.6!important}.faculty-card .faculty-meta,.faculty-card ul{margin-bottom:18px!important}
+/* full-width CTA patterns */
+.faculty-match .container,.cta-section .container{width:min(100% - 32px,1600px)!important}.faculty-match-box,.cta,.results-final-card{width:100%!important;min-height:0!important;height:auto!important;padding:clamp(28px,4vw,56px)!important;display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(260px,.65fr)!important;gap:clamp(24px,5vw,72px)!important;align-items:center!important}.faculty-match-actions,.bento-actions{justify-content:flex-start!important;align-items:center!important}.faculty-match-actions .btn,.results-final-card .btn{min-height:48px!important}
+/* home weekly rhythm / collapsed grids */
+.pv-studio-grid{display:grid!important;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr)!important;gap:24px!important;align-items:stretch!important}.pv-days{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:10px!important;min-width:0!important}.pv-day{min-width:0!important;width:100%!important;writing-mode:horizontal-tb!important;word-break:normal!important;white-space:normal!important}.pv-day span,.pv-day b{writing-mode:horizontal-tb!important;word-break:normal!important}.pv-day-panel{min-width:0!important;height:100%!important}
+/* bento cards: readable, content-driven */
+.bento-grid{align-items:stretch!important}.bento-card{min-width:0!important;height:100%!important;min-height:0!important;padding:clamp(22px,2.4vw,34px)!important}.bento-card-photo{padding:0!important;min-height:380px!important}.bento-card p{color:var(--qc-muted)!important;line-height:1.62!important}.bento-card .bento-text-link,.bento-card>a:last-child{margin-top:auto}.bento-section-title{grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr)!important;gap:clamp(24px,5vw,64px)!important}.bento-section-title>p{align-self:end!important;margin-bottom:4px!important}
+/* resources cards */
+.resources-bento .bento-card,.resource-card{display:flex!important;flex-direction:column!important}.resources-bento .bento-card p{margin-bottom:18px!important}.resources-bento .bento-card .bento-text-link{margin-top:auto!important}.resource-filter,.resource-filter-panel{height:100%!important;min-height:0!important}.resource-filter button,.resource-filter-panel button{min-height:44px!important}
+/* results: remove artificial whitespace */
+.results-hero-main,.results-hero-photo{min-height:0!important;height:auto!important}.results-hero-main{padding:clamp(28px,4vw,48px)!important}.results-hero-photo{min-height:420px!important}.results-principle,.milestone-large{min-height:0!important}.journey-feature,.review-main,.review-selector{height:100%!important}.results-final{padding-top:20px!important}.results-final-card{display:grid!important}.results-final-card h2{margin-bottom:14px!important}.results-final-card p{color:#e7edf3!important}.journey-timeline span{min-width:0!important}.review-bars>div{grid-template-columns:minmax(110px,150px) minmax(0,1fr)!important}
+/* pricing compact alignment */
+.pricing-hero,.pricing-intro{padding-block:clamp(42px,6vw,72px)!important;min-height:0!important}.pricing-hero .container,.pricing-intro .container{min-height:0!important}.pass-layout{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(420px,1fr)!important;gap:clamp(28px,5vw,72px)!important;align-items:stretch!important}.pass-benefits,.offer-panel{height:100%!important}.pass-benefits{display:flex!important;flex-direction:column!important;justify-content:space-between!important}.membership-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important;align-items:stretch!important}.vip-card,.return-card{height:100%!important;min-height:0!important;display:flex!important;flex-direction:column!important;padding:clamp(24px,3vw,38px)!important}.vip-card .btn,.return-card .btn,.return-card .alumni-discount{margin-top:auto!important}.vip-card h2,.return-card h2{font-size:clamp(1.8rem,3vw,2.6rem)!important;line-height:1.08!important}.offer-timeline{gap:14px!important}
+/* auth: one clean vertical grid */
+.auth-tech-wrap{min-height:100svh!important;height:auto!important;padding:28px 16px!important;display:grid!important;place-items:center!important}.auth-card{width:min(100%,560px)!important;min-height:0!important;height:auto!important;padding:clamp(26px,4vw,44px)!important}.auth-card>*{max-width:none!important}.auth-form{width:100%!important;margin:26px 0 0!important}.auth-form .field{width:100%!important}.auth-form input{width:100%!important;min-height:48px!important}.auth-form .btn-primary{width:100%!important;min-height:48px!important}.auth-form label{text-align:start!important}.auth-social,.social-row{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}.auth-card .nav-actions,.auth-card .auth-actions-top{position:absolute!important;top:22px!important;right:22px!important}
+/* footer alignment */
+.site-footer .container{width:min(100% - 40px,1320px)!important}.site-footer .footer-grid{display:grid!important;grid-template-columns:minmax(280px,1.35fr) repeat(3,minmax(150px,.65fr))!important;gap:clamp(28px,5vw,72px)!important;align-items:start!important}.site-footer .footer-grid>*{min-width:0!important}.site-footer p,.site-footer a{word-break:normal!important}.site-footer .footer-bottom{display:flex!important;justify-content:space-between!important;gap:24px!important;flex-wrap:wrap!important}
+/* dark mode: readable everywhere */
+body.dark{--qc-bg:#0b0d10;--qc-ink:#f7f8fa;--qc-muted:#c4ccd5;--qc-line:#3a424c;background:#0b0d10!important;color:#f7f8fa!important}body.dark main,body.dark section{color:#f7f8fa}body.dark h1,body.dark h2,body.dark h3,body.dark h4,body.dark strong,body.dark label,body.dark .section-title,body.dark .new-section-head h2,body.dark .bento-card h2,body.dark .bento-card h3{color:#f7f8fa!important}body.dark p,body.dark li,body.dark small,body.dark .muted,body.dark .new-section-head p,body.dark .bento-card p,body.dark .bento-section-title p{color:#c4ccd5!important}body.dark .bento-card,body.dark .faculty-card,body.dark .course-card,body.dark .price-card,body.dark .result-card,body.dark .auth-card,body.dark .vip-card,body.dark .return-card,body.dark .offer-panel{background:#15191e!important;border-color:#3a424c!important;color:#f7f8fa!important}body.dark input,body.dark select,body.dark textarea{background:#101419!important;border-color:#48515c!important;color:#f7f8fa!important}body.dark input::placeholder,body.dark textarea::placeholder{color:#9da8b4!important}body.dark .btn-secondary{color:#f7f8fa!important;border-color:#697481!important;background:transparent!important}
+/* calm reveal animation */
+.qc-reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}.qc-reveal.qc-visible{opacity:1;transform:none}@media(hover:hover){.course-card,.faculty-card,.bento-card,.price-card,.result-card,.vip-card,.return-card{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}.course-card:hover,.faculty-card:hover,.bento-card:hover,.price-card:hover,.result-card:hover,.vip-card:hover,.return-card:hover{transform:translateY(-3px)}}
+@media(max-width:980px){.container{width:min(100% - 32px,1440px)!important}.course-grid,.faculty-grid,.result-grid,.blog-grid,.price-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.faculty-match-box,.cta,.results-final-card{grid-template-columns:1fr!important}.pv-studio-grid{grid-template-columns:1fr!important}.pv-days{grid-template-columns:repeat(3,minmax(0,1fr))!important}.bento-section-title{grid-template-columns:1fr!important}.pass-layout{grid-template-columns:1fr!important}.site-footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.site-footer .footer-brand{grid-column:1/-1!important}}
+@media(max-width:640px){.container{width:min(100% - 24px,1440px)!important}.section,.new-section,.bento-shell{padding-block:38px!important}.course-grid,.faculty-grid,.result-grid,.blog-grid,.price-grid,.membership-grid{grid-template-columns:1fr!important}.pv-days{grid-template-columns:repeat(2,minmax(0,1fr))!important}.faculty-match .container,.cta-section .container{width:min(100% - 20px,1600px)!important}.faculty-match-box,.cta,.results-final-card{padding:24px!important}.bento-card{grid-column:1/-1!important}.bento-card-photo{min-height:330px!important}.review-bars>div{grid-template-columns:1fr!important}.auth-social,.social-row{grid-template-columns:1fr!important}.site-footer .footer-grid{grid-template-columns:1fr!important}.site-footer .footer-brand{grid-column:auto!important}.site-footer .footer-bottom{display:grid!important;grid-template-columns:1fr!important}.btn{max-width:100%}.auth-card{padding:24px 20px!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.qc-reveal{opacity:1!important;transform:none!important}}
+
+/* ===== 2026-09-30 final user QA pass ===== */
+:root{--brand:#173f67;--black:#101214;--white:#fff;--qc-primary:var(--brand);--qc-secondary:var(--white);--qc-ink:var(--black);--qc-bg:var(--white);--qc-line:var(--black);--qc-muted:#101214}
+/* Strict three-colour presentation: black, white, brand blue. */
+body{background:var(--white);color:var(--black)}
+.eyebrow,.new-kicker,.bento-kicker,.bento-index,.resource-type,.sample-label{color:var(--brand)!important}
+/* Center section headings/subheadings; heroes/header and card copy keep their intended alignment. */
+main section:not(.page-hero):not(.new-page-hero):not(.catalog-intro):not(.faculty-hero):not(.resource-hero):not(.results-hero):not(.pv-hero)>.container>.eyebrow,
+main section:not(.page-hero):not(.new-page-hero):not(.catalog-intro):not(.faculty-hero):not(.resource-hero):not(.results-hero):not(.pv-hero)>.container>.section-title{display:block;text-align:center;margin-left:auto!important;margin-right:auto!important}
+.new-section-head,.bento-section-title{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;gap:10px!important}
+.new-section-head>div,.bento-section-title>div{width:100%;text-align:center}.new-section-head p,.bento-section-title>p{max-width:760px!important;margin:0 auto!important;text-align:center!important}
+/* Footer: stable 4-column desktop, no collapsed links, clean legal row. */
+.site-footer{padding:56px 0 22px!important;background:var(--black)!important;color:var(--white)!important;margin-top:0!important}
+.site-footer .container{width:min(1180px,calc(100% - 40px))!important;margin:auto!important}
+.footer-layout{display:grid!important;grid-template-columns:minmax(280px,1.5fr) repeat(3,minmax(150px,1fr))!important;gap:clamp(28px,4vw,64px)!important;align-items:start!important}
+.footer-layout>div{min-width:0!important}.footer-intro{max-width:390px!important}.site-footer .brand,.site-footer h3,.site-footer a{color:var(--white)!important}.site-footer p,.footer-bottom{color:var(--white)!important;opacity:.82}.site-footer h3{margin:0 0 18px!important}.footer-layout>div:not(.footer-intro)>a{display:block!important;width:max-content!important;max-width:100%!important;white-space:normal!important;margin:0 0 12px!important;line-height:1.45!important}.footer-social a{display:inline-flex!important;align-items:center!important;gap:8px!important;white-space:nowrap!important}.footer-bottom{display:flex!important;justify-content:space-between!important;gap:24px!important;align-items:center!important;border-top:1px solid var(--white)!important;margin-top:38px!important;padding-top:20px!important}
+/* Page-heading background upload slots. Put user images in assets/images/heading-backgrounds/<page>.jpg */
+.page-hero.new-page-hero{position:relative!important;isolation:isolate!important;background-image:linear-gradient(rgba(16,18,20,.68),rgba(16,18,20,.68)),var(--page-heading-image,linear-gradient(var(--brand),var(--brand)))!important;background-size:cover!important;background-position:center!important;color:var(--white)!important;padding:clamp(72px,9vw,128px) 0!important}
+.page-hero.new-page-hero .breadcrumbs,.page-hero.new-page-hero .eyebrow,.page-hero.new-page-hero h1,.page-hero.new-page-hero p{color:var(--white)!important;text-shadow:none!important}.page-hero.new-page-hero .breadcrumbs{font-weight:700!important;margin-bottom:18px!important}.page-hero.new-page-hero .lead{max-width:760px!important}.page-hero.new-page-hero .visual-image-box{display:none!important}
+/* About */
+body.page-about .page-hero .container{max-width:900px!important;text-align:center!important}body.page-about .page-hero .lead{margin-inline:auto!important}body.page-about .cta .btn{background:var(--white)!important;color:var(--black)!important;border:2px solid var(--white)!important}
+/* Home 2 weekly rhythm: no oversized Friday/Review box. */
+.pv-studio-grid{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}.pv-days{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important}.pv-day{min-height:92px!important;height:auto!important;padding:14px 12px!important;white-space:normal!important}.pv-day-panel{min-height:0!important;padding:clamp(24px,3vw,36px)!important}
+/* Featured mentor and faculty directory equal sizing. */
+.faculty-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important}.faculty-feature-grid>div,.faculty-profile-spot{height:100%!important;min-height:0!important}.faculty-profile-spot{display:flex!important;flex-direction:column!important;justify-content:space-between!important}.faculty-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important}.faculty-card{grid-column:auto!important;width:100%!important;height:100%!important;display:flex!important;flex-direction:column!important}.faculty-card img{width:100%!important;aspect-ratio:4/3!important;object-fit:cover!important}.faculty-card .text-link{margin-top:auto!important}
+/* Resources/results: remove off-palette surfaces, improve dark-card text contrast. */
+.bento-soft,.resource-library,.resource-start,.resource-item,.resource-final-card,.results-hero-main,.results-hero-photo,.journey-feature,.review-main,.review-selector{--local-accent:var(--brand)}
+.bento-card-dark,.resource-start,.resource-item.bento-card-dark,.resource-final-card,.results-final-card{background:var(--black)!important;color:var(--white)!important;border-color:var(--black)!important}.bento-card-dark p,.resource-start p,.resource-item.bento-card-dark p,.resource-final-card p,.results-final-card p{color:var(--white)!important;opacity:.88!important}.resource-filter{background:var(--white)!important;color:var(--black)!important;border-color:var(--white)!important}.resource-filter.active{background:var(--brand)!important;color:var(--white)!important;border-color:var(--brand)!important}.resource-final-card,.results-final-card{width:100%!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:32px!important;padding:clamp(28px,4vw,48px)!important}.resource-final-card .bento-actions,.results-final-card .bento-actions{justify-content:flex-end!important}.results-hero .bento-card p,.journey-feature p{opacity:1!important}.results-hero-main{background:var(--white)!important;color:var(--black)!important}.results-hero-main p{color:var(--black)!important}.results-hero-photo{background:var(--black)!important;color:var(--white)!important}
+/* Pricing alignment and visibility. */
+body.page-pricing .page-hero .container{text-align:center!important;max-width:900px!important}body.page-pricing .page-hero .lead{margin-inline:auto!important;text-align:center!important}.pass-layout{align-items:stretch!important}.pass-benefits,.offer-panel{height:100%!important}.pass-benefits li{display:grid!important;grid-template-columns:44px minmax(0,1fr)!important;align-items:center!important;gap:4px 16px!important}.pass-benefits li small{grid-column:2!important}.membership-grid{align-items:stretch!important}.vip-card,.return-card{height:100%!important;display:flex!important;flex-direction:column!important}.vip-card .btn,.return-card .btn{margin-top:auto!important}.vip-card p,.return-card p{color:var(--black)!important;opacity:1!important}.feature-band,.offer-panel,.return-card,.vip-card,.price-card{background:var(--white)!important;color:var(--black)!important}.popular{border-color:var(--brand)!important}.popular-tag,.offer-strip{background:var(--brand)!important;color:var(--white)!important}.cta-section .cta{min-height:0!important;padding:clamp(28px,4vw,48px)!important}.cta-section .cta .btn{opacity:1!important;visibility:visible!important}
+/* Auth: compact, aligned, RTL-safe. */
+.auth-shell{min-height:100svh!important;padding:clamp(24px,4vw,48px)!important;align-items:center!important}.auth-card{height:auto!important;min-height:0!important;max-width:620px!important;margin:auto!important}.auth-card form,.auth-card .form-group,.auth-card input{width:100%!important}.auth-card .auth-head,.auth-card>p,.auth-card>h1{text-align:center!important}.auth-card .social-row{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}.auth-card .social-row>*{width:100%!important}.auth-top-actions{inset-inline-end:20px!important;inset-inline-start:auto!important}[dir="rtl"] .auth-top-actions{inset-inline-start:20px!important;inset-inline-end:auto!important}[dir="rtl"] .auth-card,[dir="rtl"] .auth-card input,[dir="rtl"] .auth-card label{text-align:right!important}
+/* RTL text control replaces arrow icon; same sizing everywhere including dashboards/auth. */
+.rtl-toggle{width:46px!important;min-width:46px!important;height:42px!important;padding:0 8px!important;font-size:12px!important;font-weight:800!important;letter-spacing:.08em!important}
+/* Dashboard: strict palette, readable dark mode, no green theme leakage. */
+.dashboard-shell,.dash-shell{--primary:var(--brand)!important;--accent:var(--brand)!important;--success:var(--brand)!important}.badge.green,.badge.success,.status-success,.progress-fill,.metric-icon{background:var(--brand)!important;color:var(--white)!important;border-color:var(--brand)!important}.dashboard-shell svg,.dash-shell svg{color:currentColor!important}.dashboard-shell.dark,.dark .dashboard-shell,.dark .dash-shell,body.dark .dashboard-shell,body.dark .dash-shell{background:var(--black)!important;color:var(--white)!important}.dark .dashboard-shell .card,.dark .dashboard-shell .panel,.dark .dash-shell .card,body.dark .dashboard-shell .card,body.dark .dash-shell .card{background:var(--black)!important;color:var(--white)!important;border-color:var(--white)!important}.dark .dashboard-shell p,.dark .dash-shell p,body.dark .dashboard-shell p,body.dark .dash-shell p{color:var(--white)!important;opacity:.86!important}
+/* Dark mode: only black/white/brand, readable copy. */
+body.dark{background:var(--black)!important;color:var(--white)!important}body.dark main,body.dark section,body.dark .bento-soft{background:var(--black)!important;color:var(--white)!important}body.dark h1,body.dark h2,body.dark h3,body.dark h4,body.dark p,body.dark li,body.dark label,body.dark small,body.dark .muted,body.dark .lead{color:var(--white)!important}body.dark .bento-card,body.dark .faculty-card,body.dark .course-card,body.dark .price-card,body.dark .auth-card,body.dark .vip-card,body.dark .return-card,body.dark .offer-panel,body.dark input,body.dark select,body.dark textarea{background:var(--black)!important;color:var(--white)!important;border-color:var(--white)!important}body.dark .btn-secondary,body.dark .btn-light{background:var(--white)!important;color:var(--black)!important;border-color:var(--white)!important}body.dark .btn-primary{background:var(--brand)!important;color:var(--white)!important;border-color:var(--brand)!important}
+/* Responsive */
+@media(max-width:980px){.footer-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important}.faculty-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.faculty-feature-grid{grid-template-columns:1fr!important}.pv-days{grid-template-columns:repeat(2,minmax(0,1fr))!important}.pv-days .pv-day:last-child{grid-column:1/-1!important;width:min(100%,360px)!important;justify-self:center!important}.resource-final-card,.results-final-card{grid-template-columns:1fr!important;text-align:center!important}.resource-final-card .bento-actions,.results-final-card .bento-actions{justify-content:center!important}.pass-layout{grid-template-columns:1fr!important}}
+@media(max-width:640px){.footer-layout{grid-template-columns:1fr!important}.footer-bottom{flex-direction:column!important;align-items:flex-start!important}.faculty-grid{grid-template-columns:1fr!important}.pv-days{grid-template-columns:1fr!important}.pv-days .pv-day:last-child{grid-column:auto!important;width:100%!important}.auth-card .social-row{grid-template-columns:1fr!important}.page-hero.new-page-hero{padding:64px 0!important}.resource-final-card .bento-actions,.results-final-card .bento-actions{display:grid!important;grid-template-columns:1fr!important;width:100%!important}.resource-final-card .btn,.results-final-card .btn{width:100%!important}.pass-benefits li{grid-template-columns:36px minmax(0,1fr)!important}}
+/* Inner-page custom heroes also accept the upload path without sacrificing readability. */
+body.page-courses .catalog-intro,body.page-instructors .faculty-hero,body.page-resources .resource-hero,body.page-results .results-hero{background-image:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),var(--page-heading-image)!important;background-size:cover!important;background-position:center!important}
+body.dark.page-courses .catalog-intro,body.dark.page-instructors .faculty-hero,body.dark.page-resources .resource-hero,body.dark.page-results .results-hero{background-image:linear-gradient(rgba(16,18,20,.9),rgba(16,18,20,.9)),var(--page-heading-image)!important}
+/* Enforce the three-colour rule on light surfaces too. */
+.bento-soft,.feature-band,.analytics-card,.process-step,.resource-library .bento-card,.review-bento .bento-card,.milestone-grid .bento-card{background:var(--white)!important;color:var(--black)!important;border-color:var(--black)!important}
+.bento-card:not(.bento-card-dark) p,.analytics-card p,.process-step p{color:var(--black)!important;opacity:1!important}.bento-card:not(.bento-card-dark) svg,.process-step svg,.analytics-card svg{color:var(--brand)!important}
+/* Generic CTA buttons that lacked a button variant must remain visible. */
+.cta>.btn,.cta-section .cta>a.btn:not(.btn-primary):not(.btn-secondary){background:var(--brand)!important;color:var(--white)!important;border:2px solid var(--brand)!important}
+body.dark .cta>.btn,body.dark .cta-section .cta>a.btn:not(.btn-primary):not(.btn-secondary){background:var(--white)!important;color:var(--black)!important;border-color:var(--white)!important}
+
+/* Screenshot correction pass 2026-09-30 */
+:root{--qc-primary:#173f67!important;--qc-secondary:#fff!important;--qc-ink:#101214!important}
+/* strict three-colour visual system */
+.bento-card-accent,.milestone-grid .bento-card-accent{background:#173f67!important;border-color:#173f67!important;color:#fff!important}
+.bento-card-accent h2,.bento-card-accent h3,.bento-card-accent p,.bento-card-accent span{color:#fff!important}
+/* centered content headings, excluding page/hero headers */
+main section:not(.page-hero):not(.hero):not(.catalog-intro) .bento-section-title,
+main section:not(.page-hero):not(.hero):not(.catalog-intro) .new-section-head{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;gap:10px!important}
+main section .bento-section-title>div,main section .bento-section-title>p,main section .new-section-head>div,main section .new-section-head>p{width:min(100%,900px)!important;max-width:900px!important;margin-inline:auto!important;text-align:center!important}
+main section .bento-section-title h2{font-size:clamp(2.2rem,4.6vw,4.6rem)!important;line-height:1.03!important;max-width:900px!important;margin-inline:auto!important}
+/* resource CTA: full usable width and readable */
+.resource-final .bento-grid{display:block!important}.resource-final-card{width:100%!important;min-height:0!important;padding:clamp(28px,4vw,52px)!important;display:grid!important;grid-template-columns:minmax(0,1.4fr) auto!important;align-items:center!important;gap:32px!important}.resource-final-card h2,.results-final-card h2{color:#fff!important}.resource-final-card p,.results-final-card p{color:#fff!important;opacity:.88!important}.resource-final-card .bento-kicker,.results-final-card .bento-kicker{color:#fff!important}
+/* resource cards: content-driven height, no dead space */
+.resource-item,.resource-toolkit-main,.milestone-grid .bento-card,.journey-feature{min-height:0!important;height:auto!important;padding:clamp(22px,2.5vw,32px)!important}.resource-grid,.milestone-grid{align-items:stretch!important}.resource-item p,.milestone-grid p{margin-bottom:8px!important}
+/* learner journeys compact and readable */
+.journey-grid .bento-card,.results-journeys .bento-card{min-height:0!important;height:auto!important}.journey-grid,.results-journeys .bento-grid{align-items:stretch!important}.journey-grid .bento-card p{color:#273241!important}.journey-grid .bento-card-accent p{color:#fff!important}
+/* results dark components: white text + blue only */
+.review-main,.review-selector,.results-final-card{background:#101214!important;color:#fff!important}.review-main h3,.review-main p,.review-main span,.review-main strong,.review-selector h3,.review-selector p,.review-selector span{color:#fff!important}.review-status,.review-bars i{background:#173f67!important;color:#fff!important}.review-bars b{background:#2c3540!important}.results-final-card{width:100%!important}
+/* footer: stop decorative block colliding with Contact support */
+.site-footer .footer-layout{display:grid!important;grid-template-columns:minmax(260px,1.4fr) repeat(3,minmax(150px,.7fr))!important;gap:clamp(28px,5vw,64px)!important;align-items:start!important}.site-footer .footer-social a{display:inline-flex!important;align-items:center!important;gap:10px!important;width:auto!important;min-width:max-content!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;overflow:visible!important}.site-footer .footer-social a:before,.site-footer .footer-social a:after{display:none!important;content:none!important}.site-footer .footer-social svg{position:static!important;display:block!important;flex:0 0 auto!important;background:transparent!important}
+/* dashboard strict palette and RTL name */
+.redesigned-app,.redesigned-app *{--success:#173f67!important;--accent:#173f67!important;--secondary:#173f67!important}.redesigned-app .rtl-name{font-size:12px!important;font-weight:800!important;letter-spacing:.05em!important;color:inherit!important}.redesigned-app .icon-btn:has(.rtl-name){width:auto!important;min-width:48px!important;padding-inline:9px!important}.redesigned-app .stat-chip,.redesigned-app .badge,.redesigned-app .progress>span,.redesigned-app .progress-bar>span,.redesigned-app [class*="progress"] i{background-color:#173f67!important}.redesigned-app.dark,.redesigned-app body.dark{background:#000!important;color:#fff!important}
+body.dark .app-shell,body.dark .app-main,body.dark .app-sidebar,body.dark .dash-card,body.dark .dashboard-card{background:#000!important;color:#fff!important}body.dark .app-sidebar{border-color:#173f67!important}body.dark .side-nav a.active{background:#173f67!important;color:#fff!important}
+/* auth compact */
+.auth-tech-wrap{min-height:100svh!important;padding-block:18px!important}.auth-card{padding-block:clamp(22px,3vw,34px)!important}.auth-form{margin-top:18px!important}.auth-form .field{gap:6px!important;margin-bottom:12px!important}
+@media(max-width:980px){.resource-final-card{grid-template-columns:1fr!important}.site-footer .footer-layout{grid-template-columns:repeat(2,minmax(0,1fr))!important}.site-footer .footer-intro{grid-column:1/-1!important}}
+@media(max-width:620px){main section .bento-section-title h2{font-size:clamp(2rem,10vw,3.1rem)!important}.site-footer .footer-layout{grid-template-columns:1fr!important}.resource-final-card{padding:24px!important}.resource-final-card .bento-actions{width:100%!important;display:grid!important}.resource-final-card .btn{width:100%!important}}
+
+/* Auth visual sizing + whitespace correction — 2026-09-30 */
+body.redesigned-auth .auth-wrap{
+  min-height:100svh!important;
+  grid-template-columns:minmax(0,1.08fr) minmax(420px,.92fr)!important;
+  align-items:stretch!important;
+}
+body.redesigned-auth .auth-art{
+  padding:clamp(30px,4vw,64px)!important;
+  justify-content:center!important;
+  gap:10px!important;
+}
+body.redesigned-auth .auth-art h1{
+  font-size:clamp(2.7rem,4.8vw,5rem)!important;
+  margin:.35rem 0 .5rem!important;
+  max-width:760px!important;
+}
+body.redesigned-auth .auth-art>p{
+  margin:0 0 10px!important;
+  max-width:680px!important;
+}
+body.redesigned-auth .auth-art .auth-tech-wrap{
+  width:100%!important;
+  max-width:720px!important;
+  min-height:0!important;
+  height:auto!important;
+  margin-top:12px!important;
+  padding:0!important;
+  display:block!important;
+}
+body.redesigned-auth .auth-art .visual-image-box{
+  width:100%!important;
+  max-width:720px!important;
+  height:clamp(280px,34vh,390px)!important;
+  margin:0!important;
+  border-radius:24px!important;
+  overflow:hidden!important;
+}
+body.redesigned-auth .auth-art .visual-image-box img{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  display:block!important;
+}
+body.redesigned-auth .auth-form{
+  padding:clamp(18px,3vw,38px)!important;
+  margin:0!important;
+  align-content:center!important;
+}
+body.redesigned-auth .auth-card{
+  width:min(100%,540px)!important;
+  padding:clamp(24px,3vw,34px)!important;
+  margin:0 auto!important;
+}
+body.redesigned-auth .auth-card h2{margin-top:22px!important;margin-bottom:6px!important}
+body.redesigned-auth .auth-card>.muted{margin-top:0!important;margin-bottom:14px!important}
+body.redesigned-auth .auth-form .field{margin-bottom:10px!important}
+body.redesigned-auth .auth-form .btn-primary{margin-top:12px!important}
+
+@media (max-width:980px){
+  body.redesigned-auth .auth-wrap{grid-template-columns:1fr!important;min-height:0!important}
+  body.redesigned-auth .auth-art{padding:32px clamp(20px,5vw,48px)!important}
+  body.redesigned-auth .auth-art h1{font-size:clamp(2.4rem,7vw,4rem)!important}
+  body.redesigned-auth .auth-art .auth-tech-wrap{max-width:100%!important}
+  body.redesigned-auth .auth-art .visual-image-box{max-width:100%!important;height:clamp(260px,42vw,380px)!important}
+  body.redesigned-auth .auth-form{padding:28px 20px 36px!important}
+}
+@media (max-width:620px){
+  body.redesigned-auth .auth-art{padding:26px 18px!important}
+  body.redesigned-auth .auth-art h1{font-size:clamp(2.15rem,11vw,3.15rem)!important}
+  body.redesigned-auth .auth-art .visual-image-box{height:230px!important;border-radius:18px!important}
+  body.redesigned-auth .auth-form{padding:20px 14px 28px!important}
+  body.redesigned-auth .auth-card{padding:22px 18px!important;border-radius:22px!important}
+}
+
+/* Auth RTL reliability fix — Login + Get Started */
+.redesigned-auth .auth-card > div[style*="position:absolute"]{right:18px!important;left:auto!important;direction:ltr!important}
+html[dir="rtl"] .redesigned-auth .auth-card > div[style*="position:absolute"]{right:auto!important;left:18px!important}
+.redesigned-auth .rtl-toggle{min-width:48px!important;width:auto!important;padding-inline:11px!important;direction:ltr!important;text-align:center!important;font-weight:800!important;letter-spacing:.04em!important}
+html[dir="rtl"] .redesigned-auth .auth-card{text-align:right!important}
+html[dir="rtl"] .redesigned-auth .auth-card .brand{direction:ltr!important;justify-content:flex-end!important}
+html[dir="rtl"] .redesigned-auth .auth-card h2,
+html[dir="rtl"] .redesigned-auth .auth-card > p:not(.auth-status){text-align:right!important}
+html[dir="rtl"] .redesigned-auth .field{text-align:right!important}
+html[dir="rtl"] .redesigned-auth .field input{direction:rtl!important;text-align:right!important;padding-left:46px!important;padding-right:14px!important}
+html[dir="rtl"] .redesigned-auth .field button[aria-label*="password"]{right:auto!important;left:12px!important}
+html[dir="rtl"] .redesigned-auth input[type="email"],
+html[dir="rtl"] .redesigned-auth input[type="tel"]{direction:ltr!important;text-align:right!important}
+html[dir="rtl"] .redesigned-auth .auth-art{text-align:right!important}
+html[dir="rtl"] .redesigned-auth .auth-art p{margin-left:auto!important;margin-right:0!important}
+html[dir="rtl"] .redesigned-auth .auth-card .btn{direction:ltr!important;text-align:center!important}
+html[dir="rtl"] .redesigned-auth .auth-card .small[style*="text-align:center"]{text-align:center!important}
+@media(max-width:760px){
+  .redesigned-auth .auth-card > div[style*="position:absolute"]{top:14px!important;right:14px!important}
+  html[dir="rtl"] .redesigned-auth .auth-card > div[style*="position:absolute"]{right:auto!important;left:14px!important}
+}
+
+/* === User screenshot consolidation pass — 2026-09-30 === */
+:root{--examora-blue:#173f67;--examora-black:#000000;--examora-white:#ffffff}
+/* Consistent typography: one scale for the same content role on every page */
+body{font-size:16px!important;line-height:1.65!important}
+p,.site-footer p,.site-footer a,.footer-layout p,.footer-layout a{font-size:1rem!important;line-height:1.65!important}
+main section:not(.page-hero):not(.hero) .bento-section-title h2,
+main section:not(.page-hero):not(.hero) .new-section-head h2,
+.section-title h2{font-size:clamp(2.25rem,4vw,4rem)!important;line-height:1.05!important}
+.new-kicker,.bento-kicker,.eyebrow,.sample-label{font-size:.78rem!important;letter-spacing:.13em!important}
+.site-footer h3,.site-footer h4{font-size:1.08rem!important}
+
+/* Accent/gold replacement rule: former accent cards are WHITE, not blue-filled. */
+.bento-card-accent,.milestone-grid .bento-card-accent,
+.results-journeys .bento-card-accent,.journey-grid .bento-card-accent{
+  background:var(--examora-white)!important;color:var(--examora-black)!important;
+  border:1px solid var(--examora-blue)!important
+}
+.bento-card-accent h1,.bento-card-accent h2,.bento-card-accent h3,.bento-card-accent h4,
+.bento-card-accent p,.bento-card-accent span,.bento-card-accent strong,.bento-card-accent a{
+  color:var(--examora-black)!important
+}
+.bento-card-accent .bento-index,.bento-card-accent .bento-kicker,.bento-card-accent .sample-label{color:var(--examora-blue)!important}
+body.dark .bento-card-accent,body.dark .milestone-grid .bento-card-accent,
+body.dark .results-journeys .bento-card-accent,body.dark .journey-grid .bento-card-accent{
+  background:var(--examora-white)!important;color:var(--examora-black)!important;border-color:var(--examora-blue)!important
+}
+body.dark .bento-card-accent h1,body.dark .bento-card-accent h2,body.dark .bento-card-accent h3,
+body.dark .bento-card-accent p,body.dark .bento-card-accent span,body.dark .bento-card-accent strong{color:var(--examora-black)!important}
+body.dark .bento-card-accent .bento-index,body.dark .bento-card-accent .bento-kicker{color:var(--examora-blue)!important}
+
+/* Results: Review Note and milestone cards stay white/readable and compact. */
+.results-bento .journey-grid .bento-card-dark,
+.results-bento .results-journeys .bento-card-dark,
+.results-bento .milestone-grid .bento-card{
+  background:var(--examora-white)!important;color:var(--examora-black)!important;border:1px solid var(--examora-blue)!important;
+  min-height:0!important;height:auto!important;padding:clamp(22px,2.4vw,32px)!important
+}
+.results-bento .journey-grid .bento-card-dark h2,.results-bento .journey-grid .bento-card-dark h3,
+.results-bento .journey-grid .bento-card-dark p,.results-bento .journey-grid .bento-card-dark span,
+.results-bento .milestone-grid .bento-card h2,.results-bento .milestone-grid .bento-card h3,
+.results-bento .milestone-grid .bento-card p{color:var(--examora-black)!important}
+.results-bento .journey-grid .bento-card-dark .bento-index,
+.results-bento .milestone-grid .bento-index{color:var(--examora-blue)!important}
+.results-bento .milestone-grid{align-items:stretch!important;grid-auto-rows:auto!important}
+.results-bento .milestone-grid .milestone-large h2{font-size:clamp(2.25rem,4vw,4.3rem)!important}
+body.dark .results-bento .journey-grid .bento-card-dark,
+body.dark .results-bento .milestone-grid .bento-card{background:#fff!important;color:#000!important;border-color:#173f67!important}
+body.dark .results-bento .journey-grid .bento-card-dark :is(h2,h3,p,span,strong),
+body.dark .results-bento .milestone-grid .bento-card :is(h2,h3,p,span,strong){color:#000!important}
+body.dark .results-bento .journey-grid .bento-card-dark .bento-index,
+body.dark .results-bento .milestone-grid .bento-index{color:#173f67!important}
+
+/* Dashboard: strict black / white / one navy. No green, teal, pale-blue theme drift. */
+body.redesigned-app{--primary:#173f67!important;--primary2:#173f67!important;--accent:#173f67!important;--success:#173f67!important;--secondary:#173f67!important}
+body.redesigned-app.dark,body.dark.redesigned-app{background:#000!important;color:#fff!important}
+body.dark.redesigned-app .app-shell,body.dark.redesigned-app .app-main,body.dark.redesigned-app .app-sidebar,
+body.dark.redesigned-app .app-topbar,body.dark.redesigned-app .dash-card,body.dark.redesigned-app .dashboard-card,
+body.dark.redesigned-app .course-progress-card,body.dark.redesigned-app .plan-card{background:#000!important;color:#fff!important}
+body.dark.redesigned-app :is(h1,h2,h3,h4,p,span,b,strong,label,small){color:#fff}
+body.dark.redesigned-app .side-nav a.active,body.dark.redesigned-app .badge,body.dark.redesigned-app .badge.green,
+body.dark.redesigned-app .stat-chip,body.dark.redesigned-app .progress>span,body.dark.redesigned-app .progress-bar>span,
+body.dark.redesigned-app [class*="progress"] i,body.dark.redesigned-app [class*="status"]{background:#173f67!important;color:#fff!important;border-color:#173f67!important}
+body.dark.redesigned-app .btn-primary,body.dark.redesigned-app .btn:not(.btn-secondary){background:#173f67!important;color:#fff!important;border-color:#173f67!important}
+body.dark.redesigned-app .btn-secondary{background:#fff!important;color:#000!important;border-color:#fff!important}
+body.dark.redesigned-app .app-sidebar,body.dark.redesigned-app .dash-card,body.dark.redesigned-app .dashboard-card{border-color:#173f67!important}
+.redesigned-app .rtl-toggle{width:auto!important;min-width:56px!important;padding:0 12px!important;color:inherit!important}
+
+/* Auth: same strict palette in dark mode, without changing Google/Apple semantics via layout. */
+body.dark.redesigned-auth{background:#000!important;color:#fff!important}
+body.dark.redesigned-auth .auth-wrap,body.dark.redesigned-auth .auth-form{background:#000!important;color:#fff!important}
+body.dark.redesigned-auth .auth-card{background:#000!important;color:#fff!important;border-color:#173f67!important}
+body.dark.redesigned-auth .auth-card :is(h1,h2,h3,p,label,span,strong){color:#fff!important}
+body.dark.redesigned-auth .auth-card input{background:#000!important;color:#fff!important;border-color:#173f67!important}
+body.dark.redesigned-auth .auth-card input::placeholder{color:#fff!important;opacity:.72!important}
+body.dark.redesigned-auth .auth-card .btn-primary{background:#173f67!important;color:#fff!important;border-color:#173f67!important}
+body.dark.redesigned-auth .auth-card .btn-secondary,body.dark.redesigned-auth .social-btn{background:#fff!important;color:#000!important;border-color:#173f67!important}
+body.dark.redesigned-auth .icon-btn{background:#000!important;color:#fff!important;border-color:#173f67!important}
+body.dark.redesigned-auth .auth-art{background:#000!important;color:#fff!important}
+
+/* Footer: slightly larger readable body type and collision-proof support link. */
+.site-footer{font-size:1rem!important}.site-footer .footer-social a,.site-footer .text-link{font-size:1rem!important;line-height:1.5!important;min-height:28px!important}
+.site-footer .footer-social a::before,.site-footer .footer-social a::after,.site-footer a[href*="contact"]::before,.site-footer a[href*="contact"]::after{content:none!important;display:none!important}
+
+@media(max-width:980px){
+  .results-bento .milestone-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .results-bento .milestone-grid>*{grid-column:auto!important}
+}
+@media(max-width:620px){
+  body{font-size:15px!important}.results-bento .milestone-grid{grid-template-columns:1fr!important}
+  .results-bento .milestone-grid .milestone-large h2{font-size:clamp(2rem,10vw,3rem)!important}
+}
+
+/* === Final user palette + active-state pass (2026-09-30) === */
+/* Light mode: section surfaces are white only; dark mode: black only. */
+body:not(.dark) :is(main,section,.section,.page-section,.bento-section,.editorial-section,.pricing-section,.results-section,.resources-section){background-color:#fff!important}
+body.dark :is(main,section,.section,.page-section,.bento-section,.editorial-section,.pricing-section,.results-section,.resources-section){background-color:#000!important}
+
+/* Common light cards/surfaces: remove visible grey fills. */
+body:not(.dark) :is(.bento-card,.card,.pricing-card,.vip-card,.return-card,.resource-card,.journey-card,.milestone-card,.auth-card,.dash-card,.dashboard-card){background-color:#fff!important}
+
+/* Pricing badge contrast. */
+.vip-card>span,.return-card>span{background:#173f67!important;color:#fff!important;border-color:#173f67!important}
+.vip-card>span *, .return-card>span *{color:#fff!important}
+
+/* Light-mode navigation: selected/active state must be unmistakable. */
+body:not(.dark) :is(.site-nav,.nav-links,.navbar,.main-nav,.side-nav,.dashboard-nav) a.active,
+body:not(.dark) :is(.site-nav,.nav-links,.navbar,.main-nav,.side-nav,.dashboard-nav) a[aria-current="page"],
+body:not(.dark) .dropdown-menu a.active,
+body:not(.dark) .filter-btn.active,
+body:not(.dark) [role="tab"][aria-selected="true"]{
+  background:#173f67!important;color:#fff!important;border-color:#173f67!important;
+}
+body:not(.dark) :is(.site-nav,.nav-links,.navbar,.main-nav,.side-nav,.dashboard-nav) a.active *,
+body:not(.dark) :is(.site-nav,.nav-links,.navbar,.main-nav,.side-nav,.dashboard-nav) a[aria-current="page"] *{color:#fff!important;fill:currentColor!important;stroke:currentColor!important}
+body:not(.dark) :is(.site-nav,.nav-links,.navbar,.main-nav,.side-nav,.dashboard-nav) a:not(.active):not([aria-current="page"]):hover,
+body:not(.dark) .dropdown-menu a:hover{background:#fff!important;color:#173f67!important;outline:2px solid #173f67!important;outline-offset:-2px}
+
+
+/* === Global button white-style pass (2026-09-30) ===
+   Requested: make action buttons use the same white background style.
+   Keeps the 3-color rule only: white / black / primary blue.
+   Excludes small icon-only utility buttons.
+*/
+body{
+  --action-btn-bg:#FFFFFF;
+  --action-btn-text:#000000;
+  --action-btn-border:#000000;
+  --action-btn-hover-text:#173f67;
+}
+body.dark{
+  --action-btn-bg:#FFFFFF;
+  --action-btn-text:#000000;
+  --action-btn-border:#FFFFFF;
+  --action-btn-hover-text:#173f67;
+}
+:is(a,button).btn:not(.icon-btn),
+:is(a,button).btn-primary,
+:is(a,button).btn-secondary,
+:is(a,button).btn-light,
+:is(a,button).btn-outline,
+:is(a,button).btn-accent,
+:is(a,button).btn-on-dark,
+.social-btn,
+.auth-form .btn-primary,
+.cta .btn,
+.cta-section .cta > a.btn,
+.faculty-match-actions .btn,
+.resource-final-card .bento-actions .btn,
+.results-final-card .btn,
+.offer-panel .btn,
+.vip-card .btn,
+.return-card .btn,
+.price-card .btn,
+button[type="submit"].btn,
+input[type="submit"].btn{
+  background:var(--action-btn-bg)!important;
+  color:var(--action-btn-text)!important;
+  border-color:var(--action-btn-border)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+:is(a,button).btn:not(.icon-btn) *,
+:is(a,button).btn-primary *,
+:is(a,button).btn-secondary *,
+:is(a,button).btn-light *,
+:is(a,button).btn-outline *,
+:is(a,button).btn-accent *,
+:is(a,button).btn-on-dark *,
+.social-btn *,
+.auth-form .btn-primary *,
+.cta .btn *,
+.cta-section .cta > a.btn *,
+.faculty-match-actions .btn *,
+.resource-final-card .bento-actions .btn *,
+.results-final-card .btn *,
+.offer-panel .btn *,
+.vip-card .btn *,
+.return-card .btn *,
+.price-card .btn *{
+  color:inherit!important;
+  fill:currentColor!important;
+  stroke:currentColor!important;
+}
+:is(a,button).btn:not(.icon-btn):hover,
+:is(a,button).btn-primary:hover,
+:is(a,button).btn-secondary:hover,
+:is(a,button).btn-light:hover,
+:is(a,button).btn-outline:hover,
+:is(a,button).btn-accent:hover,
+:is(a,button).btn-on-dark:hover,
+.social-btn:hover,
+.auth-form .btn-primary:hover,
+.cta .btn:hover,
+.cta-section .cta > a.btn:hover,
+.faculty-match-actions .btn:hover,
+.resource-final-card .bento-actions .btn:hover,
+.results-final-card .btn:hover,
+.offer-panel .btn:hover,
+.vip-card .btn:hover,
+.return-card .btn:hover,
+.price-card .btn:hover{
+  background:#FFFFFF!important;
+  color:var(--action-btn-hover-text)!important;
+  border-color:#173f67!important;
+}
+
+/* Added content block for featured mentor profile */
+.faculty-profile-spot{gap:18px!important}
+.faculty-profile-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:100%}
+.faculty-profile-summary>div{padding:14px 12px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.faculty-profile-summary span{display:block;font-size:.64rem;letter-spacing:.08em;font-weight:800;color:var(--primary);margin-bottom:6px}
+.faculty-profile-summary strong{display:block;font-size:1rem;line-height:1.35;color:var(--ink)}
+.faculty-profile-note{padding:16px 0 0;border-top:1px solid var(--line);width:100%}
+.faculty-profile-note h4{margin:0 0 10px;font-size:.92rem;color:var(--ink)}
+.faculty-profile-note ul{margin:0;padding-left:18px;display:grid;gap:8px;color:var(--muted);font-size:.82rem;line-height:1.6}
+[dir="rtl"] .faculty-profile-note ul{padding-left:0;padding-right:18px}
+@media(max-width:760px){
+  .faculty-profile-summary{grid-template-columns:1fr 1fr}
+  .faculty-profile-summary>div:last-child{grid-column:1/-1}
+}
+@media(max-width:520px){
+  .faculty-profile-summary{grid-template-columns:1fr}
+}
+
+/* === Site-wide paragraph size normalization: 16px === */
+body p,
+.site-footer p,
+.bento-card p,
+.card p,
+.course-card p,
+.faculty-card p,
+.faculty-profile-spot p,
+.price-card p,
+.resource-card p,
+.result-card p,
+.journey-card p,
+.milestone-card p,
+.auth-card p,
+.dash-card p,
+.dashboard-card p,
+.new-section-head p,
+.faculty-feature-points p,
+.faculty-method-list small,
+.new-course p,
+.new-practice-feature > p,
+.new-plan > p,
+.support-grid p,
+.resource-item p,
+.results-bento p,
+.pricing-page p,
+.about-page p,
+.contact-page p,
+.blog-page p,
+.mock-tests-page p {
+  font-size:16px!important;
+  line-height:1.65!important;
+}
+
+/* Keep labels / eyebrow text intentionally smaller. */
+.new-kicker,
+.eyebrow,
+.resource-type,
+.faculty-profile-top span,
+.faculty-card-body > span,
+.section-label,
+[class*="kicker"],
+[class*="eyebrow"] {
+  font-size:inherit;
+}
+
+@media(max-width:620px){
+  body p,
+  .site-footer p,
+  .bento-card p,
+  .card p,
+  .course-card p,
+  .faculty-card p,
+  .faculty-profile-spot p,
+  .price-card p,
+  .resource-card p,
+  .result-card p,
+  .journey-card p,
+  .milestone-card p,
+  .auth-card p,
+  .dash-card p,
+  .dashboard-card p,
+  .new-section-head p,
+  .faculty-feature-points p,
+  .new-course p,
+  .new-practice-feature > p,
+  .new-plan > p,
+  .support-grid p,
+  .resource-item p,
+  .results-bento p,
+  .pricing-page p,
+  .about-page p,
+  .contact-page p,
+  .blog-page p,
+  .mock-tests-page p {
+    font-size:16px!important;
+  }
+}
+
+/* === Resource final CTA: light-mode visibility + compact spacing === */
+body:not(.dark) .resource-final{
+  padding-top:20px!important;
+  padding-bottom:28px!important;
+  background:#fff!important;
+}
+body:not(.dark) .resource-final .resource-final-card{
+  background:#fff!important;
+  color:#000!important;
+  border:1px solid #173f67!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:clamp(28px,3.5vw,46px)!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  gap:clamp(24px,4vw,48px)!important;
+  align-items:center!important;
+}
+body:not(.dark) .resource-final .resource-final-card :is(.bento-kicker,h2,p){
+  color:#000!important;
+  opacity:1!important;
+}
+body:not(.dark) .resource-final .resource-final-card .bento-kicker{
+  color:#173f67!important;
+}
+body:not(.dark) .resource-final .resource-final-card h2{
+  margin:10px 0 12px!important;
+  max-width:760px!important;
+}
+body:not(.dark) .resource-final .resource-final-card p{
+  margin:0!important;
+  max-width:760px!important;
+}
+body:not(.dark) .resource-final .resource-final-card .bento-actions{
+  align-self:center!important;
+  justify-content:flex-end!important;
+  margin:0!important;
+}
+body.dark .resource-final{
+  padding-top:20px!important;
+  padding-bottom:28px!important;
+}
+body.dark .resource-final .resource-final-card{
+  min-height:0!important;
+  height:auto!important;
+  padding:clamp(28px,3.5vw,46px)!important;
+  gap:clamp(24px,4vw,48px)!important;
+}
+@media(max-width:980px){
+  body:not(.dark) .resource-final .resource-final-card,
+  body.dark .resource-final .resource-final-card{
+    grid-template-columns:1fr!important;
+    text-align:center!important;
+  }
+  .resource-final .resource-final-card .bento-actions{
+    justify-content:center!important;
+  }
+  .resource-final .resource-final-card h2,
+  .resource-final .resource-final-card p{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+}
+@media(max-width:620px){
+  body:not(.dark) .resource-final,
+  body.dark .resource-final{
+    padding-top:12px!important;
+    padding-bottom:20px!important;
+  }
+  body:not(.dark) .resource-final .resource-final-card,
+  body.dark .resource-final .resource-final-card{
+    padding:24px 20px!important;
+    gap:22px!important;
+  }
+}
+
+/* === Home Light/Dark contrast correction (2026-09-30) ===
+   Fixes light-mode text inheritance in the pathway and final CTA.
+   Palette remains strictly black / white / Examora primary blue.
+*/
+
+/* Preparation pathway is intentionally a dark strip in both themes. */
+body:not(.dark) .classic-pathway,
+body.dark .classic-pathway{
+  background:#000000!important;
+  color:#FFFFFF!important;
+}
+body:not(.dark) .classic-pathway .pathway-grid>div,
+body.dark .classic-pathway .pathway-grid>div{
+  border-color:#173f67!important;
+}
+body:not(.dark) .classic-pathway .pathway-grid :is(b,span),
+body.dark .classic-pathway .pathway-grid :is(b,span){
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+
+/* Home final CTA: light mode is white with dark readable copy. */
+body:not(.dark) .new-cta{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-top:1px solid #173f67!important;
+  border-bottom:1px solid #173f67!important;
+}
+body:not(.dark) .new-cta .new-kicker{
+  color:#173f67!important;
+  opacity:1!important;
+}
+body:not(.dark) .new-cta h2,
+body:not(.dark) .new-cta p{
+  color:#000000!important;
+  opacity:1!important;
+}
+body:not(.dark) .new-cta .btn,
+body:not(.dark) .new-cta .btn-on-dark{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#000000!important;
+}
+body:not(.dark) .new-cta .btn:hover,
+body:not(.dark) .new-cta .btn-on-dark:hover{
+  background:#FFFFFF!important;
+  color:#173f67!important;
+  border-color:#173f67!important;
+}
+
+/* Dark mode CTA remains black with white copy. */
+body.dark .new-cta{
+  background:#000000!important;
+  color:#FFFFFF!important;
+  border-top:1px solid #173f67!important;
+  border-bottom:1px solid #173f67!important;
+}
+body.dark .new-cta .new-kicker{
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+body.dark .new-cta h2,
+body.dark .new-cta p{
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+body.dark .new-cta .btn,
+body.dark .new-cta .btn-on-dark{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#FFFFFF!important;
+}
+
+/* Keep the CTA compact and responsive. */
+.new-cta{
+  padding:clamp(34px,4vw,54px) 0!important;
+}
+.new-cta-inner{
+  gap:clamp(22px,4vw,48px)!important;
+}
+.new-cta-inner>div{
+  max-width:760px!important;
+}
+.new-cta h2{
+  margin:10px 0 12px!important;
+}
+.new-cta p{
+  margin:0!important;
+  max-width:720px!important;
+}
+@media(max-width:800px){
+  .new-cta-inner{
+    align-items:flex-start!important;
+  }
+}
+
+/* === HOME MOBILE/TABLET RESPONSIVE CARD PASS (2026-09-30) ===
+   User rule: three-card groups use 2 cards on the first row and the third centered below.
+   All home text/card content must remain readable and never overflow on small screens.
+*/
+.classic-home :is(.new-goal,.new-course,.support-grid>a,.new-practice-feature,.new-plan),
+.premium-v2 :is(.pv-path-grid article,.pv-day,.pv-review-card,.pv-review-aside){
+  min-width:0!important;
+  max-width:100%!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+}
+.classic-home :is(.new-goal,.new-course,.support-grid>a) :is(h2,h3,h4,p,span,strong,b,small,a),
+.premium-v2 :is(.pv-path-grid article,.pv-day,.pv-review-card,.pv-review-aside) :is(h2,h3,h4,p,span,strong,b,small,a){
+  max-width:100%!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+}
+
+@media (max-width: 900px){
+  /* Classic Home: exact 3-card groups follow the 2 + 1 rule. */
+  .classic-home .new-course-grid,
+  .classic-home .support-grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:16px!important;
+    align-items:stretch!important;
+  }
+  .classic-home .new-course-grid > :nth-child(3):last-child,
+  .classic-home .support-grid > :nth-child(3):last-child{
+    grid-column:1 / -1!important;
+    width:min(100%,calc(50% - 8px))!important;
+    justify-self:center!important;
+  }
+
+  /* 5-card goal grid: two per row, final item centered. */
+  .classic-home .goal-grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:14px!important;
+  }
+  .classic-home .goal-grid > :nth-child(5):last-child{
+    grid-column:1 / -1!important;
+    width:min(100%,calc(50% - 7px))!important;
+    justify-self:center!important;
+  }
+
+  /* Four pathway boxes: stable 2 x 2 instead of narrow columns. */
+  .classic-home .pathway-grid,
+  .premium-v2 .pv-path-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+
+  /* Home 2 weekly boxes: two per row, final box centered. */
+  .premium-v2 .pv-days{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .premium-v2 .pv-days > .pv-day:last-child:nth-child(odd){
+    grid-column:1 / -1!important;
+    width:min(100%,calc(50% - 6px))!important;
+    justify-self:center!important;
+  }
+
+  .classic-home .new-course-content,
+  .classic-home .support-grid>a,
+  .classic-home .new-goal,
+  .premium-v2 .pv-path-grid article{
+    padding:20px!important;
+  }
+}
+
+@media (max-width: 600px){
+  /* Keep the requested 2 + 1 rule on phone widths without text collapsing. */
+  .classic-home .new-course-grid,
+  .classic-home .support-grid,
+  .classic-home .goal-grid,
+  .classic-home .pathway-grid,
+  .premium-v2 .pv-path-grid,
+  .premium-v2 .pv-days{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+  }
+
+  .classic-home .new-course-grid > :nth-child(3):last-child,
+  .classic-home .support-grid > :nth-child(3):last-child,
+  .classic-home .goal-grid > :nth-child(5):last-child,
+  .premium-v2 .pv-days > .pv-day:last-child:nth-child(odd){
+    grid-column:1 / -1!important;
+    width:calc(50% - 5px)!important;
+    justify-self:center!important;
+  }
+
+  .classic-home .new-goal,
+  .classic-home .support-grid>a,
+  .classic-home .new-course-content,
+  .premium-v2 .pv-path-grid article,
+  .premium-v2 .pv-day{
+    padding:14px!important;
+  }
+
+  .classic-home .new-goal{
+    align-items:flex-start!important;
+    gap:10px!important;
+  }
+  .classic-home .goal-icon{
+    flex:0 0 38px!important;
+    width:38px!important;
+    height:38px!important;
+  }
+  .classic-home .goal-arrow{display:none!important}
+
+  .classic-home .new-course h3,
+  .classic-home .support-grid h3,
+  .premium-v2 .pv-path-grid h3{
+    font-size:1rem!important;
+    line-height:1.3!important;
+  }
+  .classic-home .new-course p,
+  .classic-home .support-grid p,
+  .premium-v2 .pv-path-grid p{
+    font-size:16px!important;
+    line-height:1.55!important;
+  }
+
+  .classic-home .course-photo{
+    height:150px!important;
+  }
+  .classic-home .support-grid>a>span{
+    width:40px!important;
+    height:40px!important;
+    margin-bottom:14px!important;
+  }
+}
+
+/* Very narrow phones: preserve usability instead of squeezing text into tiny columns. */
+@media (max-width: 420px){
+  .classic-home .new-course-grid,
+  .classic-home .support-grid,
+  .classic-home .goal-grid,
+  .classic-home .pathway-grid,
+  .premium-v2 .pv-path-grid,
+  .premium-v2 .pv-days{
+    grid-template-columns:1fr!important;
+  }
+  .classic-home .new-course-grid > *,
+  .classic-home .support-grid > *,
+  .classic-home .goal-grid > *,
+  .premium-v2 .pv-days > .pv-day{
+    grid-column:auto!important;
+    width:100%!important;
+    justify-self:stretch!important;
+  }
+}
+
+/* === Mobile correction: no 3-card rule on phones ===
+   Tablet keeps 2+1 / 2+2+1. Mobile is always a clean 1-column stack.
+*/
+@media (max-width: 600px){
+  .classic-home .new-course-grid,
+  .classic-home .support-grid,
+  .classic-home .goal-grid,
+  .classic-home .pathway-grid,
+  .premium-v2 .pv-path-grid,
+  .premium-v2 .pv-days{
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+  }
+
+  .classic-home .new-course-grid > *,
+  .classic-home .support-grid > *,
+  .classic-home .goal-grid > *,
+  .classic-home .pathway-grid > *,
+  .premium-v2 .pv-path-grid > *,
+  .premium-v2 .pv-days > .pv-day{
+    grid-column:auto!important;
+    width:100%!important;
+    max-width:none!important;
+    justify-self:stretch!important;
+  }
+
+  .classic-home .new-goal,
+  .classic-home .support-grid>a,
+  .classic-home .new-course-content,
+  .premium-v2 .pv-path-grid article,
+  .premium-v2 .pv-day{
+    padding:18px!important;
+  }
+
+  .classic-home .new-course h3,
+  .classic-home .support-grid h3,
+  .premium-v2 .pv-path-grid h3{
+    font-size:1.08rem!important;
+    line-height:1.32!important;
+  }
+
+  .classic-home .new-course p,
+  .classic-home .support-grid p,
+  .premium-v2 .pv-path-grid p,
+  .premium-v2 .pv-day p{
+    font-size:16px!important;
+    line-height:1.6!important;
+  }
+
+  .classic-home .course-photo{
+    height:190px!important;
+  }
+}
+
+/* === DEFINITIVE PHONE LAYOUT FIX ===
+   Phone range (<= 767px): all Home card/text-box grids become one full-width column.
+   Tablet (768-900px): keeps the balanced 2+1 / 2+2+1 layouts above.
+*/
+@media (max-width: 767px){
+  /* Home 1 card/text-box groups */
+  .classic-home .goal-grid,
+  .classic-home .new-course-grid,
+  .classic-home .support-grid,
+  .classic-home .pathway-grid,
+  .classic-home .new-practice-grid,
+  .classic-home .question-options{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:14px!important;
+    width:100%!important;
+  }
+
+  /* Home 2 card/text-box groups */
+  .premium-v2 .pv-path-grid,
+  .premium-v2 .pv-days,
+  .premium-v2 .pv-studio-grid,
+  .premium-v2 .pv-review-grid,
+  .premium-v2 .pv-coaching-grid{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:14px!important;
+    width:100%!important;
+  }
+
+  /* Reset every tablet centering/span rule on phones. */
+  .classic-home .goal-grid > *,
+  .classic-home .new-course-grid > *,
+  .classic-home .support-grid > *,
+  .classic-home .pathway-grid > *,
+  .classic-home .new-practice-grid > *,
+  .classic-home .question-options > *,
+  .premium-v2 .pv-path-grid > *,
+  .premium-v2 .pv-days > *,
+  .premium-v2 .pv-studio-grid > *,
+  .premium-v2 .pv-review-grid > *,
+  .premium-v2 .pv-coaching-grid > *{
+    grid-column:1 / -1!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    justify-self:stretch!important;
+    box-sizing:border-box!important;
+  }
+
+  /* Prevent text from creating horizontal overflow. */
+  .classic-home :is(.new-goal,.new-course,.support-grid>a,.new-practice-feature,.new-plan,.pathway-grid>div),
+  .premium-v2 :is(.pv-day,.pv-day-panel,.pv-review-card,.pv-review-aside,.pv-path-grid>*){
+    min-width:0!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+  }
+
+  .classic-home :is(h1,h2,h3,h4,p,span,strong,b,small,a),
+  .premium-v2 :is(h1,h2,h3,h4,p,span,strong,b,small,a){
+    overflow-wrap:break-word!important;
+    word-break:normal!important;
+  }
+
+  .classic-home .new-course-content,
+  .classic-home .new-goal,
+  .classic-home .support-grid>a,
+  .classic-home .new-practice-feature,
+  .classic-home .new-plan,
+  .premium-v2 .pv-day,
+  .premium-v2 .pv-day-panel,
+  .premium-v2 .pv-review-card,
+  .premium-v2 .pv-review-aside{
+    padding:18px!important;
+  }
+
+  .classic-home .course-photo{height:190px!important}
+}
+
+/* =========================================================
+   HOME RESPONSIVE SPECIFICITY FIX — 2026-09-30
+   Directly overrides older odd-card width/span selectors that
+   were winning over the generic responsive rules.
+   ========================================================= */
+
+/* Desktop: Home 2 weekly rhythm uses five equal cards; Friday must not span a whole row. */
+@media (min-width: 981px){
+  .premium-v2 .pv-days{
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  }
+  .premium-v2 .pv-days > .pv-day:last-child:nth-child(odd){
+    grid-column:auto!important;
+    width:100%!important;
+    max-width:none!important;
+    justify-self:stretch!important;
+  }
+}
+
+/* Tablet: keep intentional balanced layouts only. */
+@media (min-width: 768px) and (max-width: 980px){
+  .classic-home .goal-grid,
+  .classic-home .new-course-grid,
+  .classic-home .support-grid,
+  .premium-v2 .pv-path-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+
+  .classic-home .goal-grid > .new-goal:last-child:nth-child(odd),
+  .classic-home .new-course-grid > .new-course:nth-child(3):last-child,
+  .classic-home .support-grid > a:nth-child(3):last-child{
+    grid-column:1 / -1!important;
+    width:calc(50% - 7px)!important;
+    max-width:none!important;
+    justify-self:center!important;
+  }
+
+  .premium-v2 .pv-days{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .premium-v2 .pv-days > .pv-day:last-child:nth-child(odd){
+    grid-column:1 / -1!important;
+    width:min(100%,360px)!important;
+    max-width:360px!important;
+    justify-self:center!important;
+  }
+}
+
+/* Phones: NEVER apply the 2+1 / half-width odd-card rule. */
+@media (max-width: 767px){
+  .classic-home .goal-grid,
+  .classic-home .new-course-grid,
+  .classic-home .support-grid,
+  .classic-home .new-practice-grid,
+  .classic-home .pathway-grid,
+  .premium-v2 .pv-path-grid,
+  .premium-v2 .pv-days,
+  .premium-v2 .pv-studio-grid,
+  .premium-v2 .pv-review-grid,
+  .premium-v2 .pv-coaching-grid{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:14px!important;
+    width:100%!important;
+  }
+
+  /* Explicitly beat the old high-specificity odd-item rules. */
+  .classic-home .goal-grid > .new-goal:last-child:nth-child(odd),
+  .classic-home .goal-grid > .new-goal:nth-child(4),
+  .classic-home .goal-grid > .new-goal:nth-child(5),
+  .classic-home .new-course-grid > .new-course:nth-child(3):last-child,
+  .classic-home .support-grid > a:nth-child(3):last-child,
+  .premium-v2 .pv-days > .pv-day:last-child:nth-child(odd){
+    grid-column:1 / -1!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    justify-self:stretch!important;
+  }
+
+  .classic-home .goal-grid > .new-goal,
+  .classic-home .new-course-grid > .new-course,
+  .classic-home .support-grid > a,
+  .classic-home .new-practice-grid > *,
+  .classic-home .pathway-grid > *,
+  .premium-v2 .pv-path-grid > *,
+  .premium-v2 .pv-days > .pv-day,
+  .premium-v2 .pv-studio-grid > *,
+  .premium-v2 .pv-review-grid > *,
+  .premium-v2 .pv-coaching-grid > *{
+    grid-column:1 / -1!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    justify-self:stretch!important;
+    box-sizing:border-box!important;
+  }
+
+  .classic-home .new-course,
+  .classic-home .new-goal,
+  .classic-home .support-grid > a,
+  .premium-v2 .pv-day{
+    margin-inline:0!important;
+  }
+}
+
+/* === Home CTA contrast correction ===
+   Light mode: white surface + black readable text.
+   Dark mode: black surface + white readable text.
+   Primary blue is reserved for labels/accents only.
+*/
+body:not(.dark) .premium-v2 .pv-final,
+body:not(.dark) .new-cta,
+body:not(.dark) .home-cta,
+body:not(.dark) .cta-section {
+  background:#FFFFFF!important;
+  color:#000000!important;
+}
+body:not(.dark) .premium-v2 .pv-final h1,
+body:not(.dark) .premium-v2 .pv-final h2,
+body:not(.dark) .premium-v2 .pv-final h3,
+body:not(.dark) .premium-v2 .pv-final p,
+body:not(.dark) .new-cta h1,
+body:not(.dark) .new-cta h2,
+body:not(.dark) .new-cta h3,
+body:not(.dark) .new-cta p,
+body:not(.dark) .home-cta h1,
+body:not(.dark) .home-cta h2,
+body:not(.dark) .home-cta h3,
+body:not(.dark) .home-cta p,
+body:not(.dark) .cta-section h1,
+body:not(.dark) .cta-section h2,
+body:not(.dark) .cta-section h3,
+body:not(.dark) .cta-section p {
+  color:#000000!important;
+  opacity:1!important;
+}
+body:not(.dark) .premium-v2 .pv-final .new-kicker,
+body:not(.dark) .new-cta .new-kicker,
+body:not(.dark) .home-cta .new-kicker,
+body:not(.dark) .cta-section .new-kicker,
+body:not(.dark) .premium-v2 .pv-final .eyebrow,
+body:not(.dark) .new-cta .eyebrow {
+  color:#173f67!important;
+  opacity:1!important;
+}
+
+body.dark .premium-v2 .pv-final,
+body.dark .new-cta,
+body.dark .home-cta,
+body.dark .cta-section {
+  background:#000000!important;
+  color:#FFFFFF!important;
+}
+body.dark .premium-v2 .pv-final h1,
+body.dark .premium-v2 .pv-final h2,
+body.dark .premium-v2 .pv-final h3,
+body.dark .premium-v2 .pv-final p,
+body.dark .new-cta h1,
+body.dark .new-cta h2,
+body.dark .new-cta h3,
+body.dark .new-cta p,
+body.dark .home-cta h1,
+body.dark .home-cta h2,
+body.dark .home-cta h3,
+body.dark .home-cta p,
+body.dark .cta-section h1,
+body.dark .cta-section h2,
+body.dark .cta-section h3,
+body.dark .cta-section p {
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+body.dark .premium-v2 .pv-final .new-kicker,
+body.dark .new-cta .new-kicker,
+body.dark .home-cta .new-kicker,
+body.dark .cta-section .new-kicker,
+body.dark .premium-v2 .pv-final .eyebrow,
+body.dark .new-cta .eyebrow {
+  color:#173f67!important;
+  opacity:1!important;
+}
+
+/* === Home 2 weekly study panel: balanced text + image split === */
+.premium-v2 .pv-day-panel{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr)!important;
+  gap:0!important;
+  align-items:stretch!important;
+  padding:0!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  background:#fff!important;
+  color:#000!important;
+}
+.premium-v2 .pv-day-panel-copy{
+  padding:clamp(28px,3.2vw,48px)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  min-width:0!important;
+}
+.premium-v2 .pv-day-panel-copy h3{margin:14px 0 12px!important}
+.premium-v2 .pv-day-panel-copy>p{margin:0!important;max-width:760px!important}
+.premium-v2 .pv-day-metadata{margin:18px 0!important;padding:16px 0!important}
+.premium-v2 .pv-day-goals{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;
+  margin:0 0 18px!important;
+}
+.premium-v2 .pv-day-goals strong{
+  grid-column:1/-1!important;
+  font-size:16px!important;
+  color:#000!important;
+}
+.premium-v2 .pv-day-goals span{
+  padding:10px 12px!important;
+  border:1px solid #173f67!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  color:#000!important;
+  font-size:16px!important;
+  line-height:1.4!important;
+}
+.premium-v2 .pv-day-panel-copy .text-link{margin-top:0!important}
+.premium-v2 .pv-day-panel-media{
+  min-height:100%!important;
+  background:#173f67!important;
+  overflow:hidden!important;
+}
+.premium-v2 .pv-day-panel-media img{
+  width:100%!important;
+  height:100%!important;
+  min-height:390px!important;
+  object-fit:cover!important;
+  display:block!important;
+  transform:scale(1.01);
+  animation:pvStudyImageIn .7s ease both;
+}
+.premium-v2 .pv-day-panel-media img.pv-image-refresh{animation:pvStudyImageRefresh .45s ease both}
+@keyframes pvStudyImageIn{from{opacity:0;transform:scale(1.035)}to{opacity:1;transform:scale(1.01)}}
+@keyframes pvStudyImageRefresh{0%{opacity:.35;transform:scale(1.04)}100%{opacity:1;transform:scale(1.01)}}
+body.dark .premium-v2 .pv-day-panel{background:#000!important;color:#fff!important;border-color:#fff!important}
+body.dark .premium-v2 .pv-day-panel-copy :is(h3,p,span,strong,a){color:#fff!important}
+body.dark .premium-v2 .pv-day-goals span{background:#000!important;color:#fff!important;border-color:#173f67!important}
+body.dark .premium-v2 .pv-day-goals strong{color:#fff!important}
+@media(max-width:900px){
+  .premium-v2 .pv-day-panel{grid-template-columns:1fr!important}
+  .premium-v2 .pv-day-panel-media{order:2!important;min-height:260px!important}
+  .premium-v2 .pv-day-panel-media img{min-height:260px!important;height:300px!important}
+}
+@media(max-width:767px){
+  .premium-v2 .pv-day-panel-copy{padding:24px 20px!important}
+  .premium-v2 .pv-day-goals{grid-template-columns:1fr!important}
+  .premium-v2 .pv-day-panel-media img{height:240px!important;min-height:240px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .premium-v2 .pv-day-panel-media img,.premium-v2 .pv-day-panel-media img.pv-image-refresh{animation:none!important;transition:none!important}
+}
+
+/* =========================================================
+   HOME 2 TARGETED RESPONSIVE FIX — Support + Post-Mock
+   2026-09-30
+   ========================================================= */
+
+/* Tablet: the post-mock review must never be squeezed into two narrow columns. */
+@media (min-width:768px) and (max-width:1024px){
+  .premium-v2 .pv-review-grid{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:20px!important;
+    width:100%!important;
+  }
+  .premium-v2 .pv-review-grid > .pv-review-card,
+  .premium-v2 .pv-review-grid > .pv-review-aside{
+    grid-column:1/-1!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+  }
+  .premium-v2 .pv-review-card,
+  .premium-v2 .pv-review-aside{
+    padding:28px!important;
+  }
+  .premium-v2 .pv-review-row{
+    align-items:flex-start!important;
+  }
+  .premium-v2 .pv-review-aside .btn{
+    width:auto!important;
+    max-width:100%!important;
+    white-space:normal!important;
+  }
+}
+
+/* Mobile: Support that makes sense becomes a true full-width stacked section. */
+@media (max-width:767px){
+  .premium-v2 .pv-coaching{
+    overflow:hidden!important;
+  }
+  .premium-v2 .pv-coaching-grid{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:24px!important;
+    width:100%!important;
+    align-items:stretch!important;
+  }
+  .premium-v2 .pv-coaching-grid > *{
+    grid-column:1/-1!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+  }
+  .premium-v2 .pv-coaching-grid > div:first-child{
+    padding:0!important;
+  }
+  .premium-v2 .pv-coaching-grid h2{
+    max-width:100%!important;
+    font-size:clamp(1.9rem,9vw,2.7rem)!important;
+    line-height:1.12!important;
+    overflow-wrap:break-word!important;
+  }
+  .premium-v2 .pv-coaching-grid p{
+    max-width:100%!important;
+    font-size:16px!important;
+    line-height:1.65!important;
+  }
+  .premium-v2 .pv-support-lines{
+    width:100%!important;
+    margin-top:22px!important;
+  }
+  .premium-v2 .pv-support-lines a{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:6px!important;
+    width:100%!important;
+    padding:16px 0!important;
+    min-width:0!important;
+  }
+  .premium-v2 .pv-support-lines b,
+  .premium-v2 .pv-support-lines span{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    white-space:normal!important;
+    overflow-wrap:break-word!important;
+    text-align:start!important;
+  }
+  .premium-v2 .pv-coaching-image{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    aspect-ratio:16/10!important;
+    border-radius:18px!important;
+    overflow:hidden!important;
+  }
+  .premium-v2 .pv-coaching-image img{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    object-fit:cover!important;
+    display:block!important;
+  }
+
+  /* Post-mock card also stays clean on phones. */
+  .premium-v2 .pv-review-grid{
+    grid-template-columns:minmax(0,1fr)!important;
+    gap:14px!important;
+  }
+  .premium-v2 .pv-review-card,
+  .premium-v2 .pv-review-aside{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    padding:20px!important;
+    box-sizing:border-box!important;
+  }
+  .premium-v2 .pv-review-aside ol{
+    padding-inline-start:20px!important;
+    margin:18px 0 22px!important;
+  }
+  .premium-v2 .pv-review-aside .btn{
+    width:100%!important;
+    white-space:normal!important;
+    text-align:center!important;
+  }
+}
+
+/* =========================================================
+   TABLET COMPACTNESS FIX — Footer + Post-Mock card
+   2026-09-30
+   ========================================================= */
+@media (min-width:641px) and (max-width:1024px){
+  /* Footer: remove the large vertical gaps in tablet mode. */
+  .site-footer{
+    padding:32px 0 16px!important;
+  }
+  .site-footer .container{
+    width:min(100% - 32px,1180px)!important;
+  }
+  .site-footer .footer-layout{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    column-gap:28px!important;
+    row-gap:22px!important;
+    align-items:start!important;
+  }
+  .site-footer .footer-intro{
+    grid-column:auto!important;
+    max-width:none!important;
+  }
+  .site-footer .footer-intro p{
+    margin:12px 0 14px!important;
+    max-width:34ch!important;
+  }
+  .site-footer h3{
+    margin:0 0 10px!important;
+  }
+  .site-footer .footer-layout>div:not(.footer-intro)>a{
+    margin-bottom:7px!important;
+    line-height:1.35!important;
+  }
+  .site-footer .footer-social a{
+    min-height:24px!important;
+    margin-top:2px!important;
+  }
+  .site-footer .footer-bottom{
+    margin-top:22px!important;
+    padding-top:14px!important;
+    gap:14px!important;
+    align-items:flex-start!important;
+  }
+
+  /* Post-mock card: content-driven height and tighter vertical rhythm. */
+  .premium-v2 .pv-review-grid{
+    align-items:start!important;
+    gap:14px!important;
+  }
+  .premium-v2 .pv-review-card,
+  .premium-v2 .pv-review-aside{
+    min-height:0!important;
+    height:auto!important;
+    padding:20px 22px!important;
+    align-self:start!important;
+  }
+  .premium-v2 .pv-review-card h3,
+  .premium-v2 .pv-review-aside h3{
+    margin-top:0!important;
+    margin-bottom:12px!important;
+  }
+  .premium-v2 .pv-review-aside ol{
+    margin:10px 0 14px!important;
+    padding-inline-start:20px!important;
+  }
+  .premium-v2 .pv-review-aside li{
+    margin:6px 0!important;
+  }
+  .premium-v2 .pv-review-aside .btn{
+    margin-top:2px!important;
+    min-height:40px!important;
+    padding:10px 14px!important;
+  }
+}
+
+/* Home 2: make post-mock card match practice-review card */
+.premium-v2 .pv-review-grid{
+  align-items:stretch!important;
+}
+.premium-v2 .pv-review-card,
+.premium-v2 .pv-review-aside{
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:28px!important;
+}
+.premium-v2 .pv-review-kicker{
+  font-size:.66rem!important;
+  font-weight:850!important;
+  color:#173f67!important;
+  letter-spacing:.1em!important;
+  margin-bottom:0!important;
+}
+.premium-v2 .pv-review-aside h3{
+  font-size:1.65rem!important;
+  margin:16px 0 26px!important;
+}
+.premium-v2 .pv-review-aside .pv-review-row{
+  display:flex!important;
+  justify-content:space-between!important;
+  align-items:center!important;
+  gap:20px!important;
+  padding:16px 0!important;
+  border-top:1px solid var(--line)!important;
+  font-size:.8rem!important;
+}
+.premium-v2 .pv-review-aside .pv-review-row b{
+  color:var(--ink)!important;
+  min-width:24px!important;
+}
+.premium-v2 .pv-review-aside .pv-review-row span{
+  color:var(--muted)!important;
+  text-align:end!important;
+}
+.premium-v2 .pv-review-aside .btn{
+  margin-top:20px!important;
+  align-self:flex-start!important;
+}
+@media(max-width:600px){
+  .premium-v2 .pv-review-card,
+  .premium-v2 .pv-review-aside{padding:22px!important}
+  .premium-v2 .pv-review-aside .pv-review-row{align-items:flex-start!important}
+  .premium-v2 .pv-review-aside .pv-review-row span{text-align:start!important}
+}
+
+/* === Home 2: Support that makes sense — mobile compact responsive fix === */
+@media (max-width:767px){
+  .premium-v2 .pv-coaching.new-section{
+    padding:40px 0!important;
+  }
+  .premium-v2 .pv-coaching .container{
+    width:min(100% - 28px,660px)!important;
+  }
+  .premium-v2 .pv-coaching-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+    align-items:start!important;
+  }
+  .premium-v2 .pv-coaching-grid > div:first-child{
+    padding:0!important;
+    min-width:0!important;
+  }
+  .premium-v2 .pv-coaching .new-kicker{
+    display:block!important;
+    font-size:.72rem!important;
+    line-height:1.45!important;
+    letter-spacing:.14em!important;
+    margin-bottom:14px!important;
+    overflow-wrap:anywhere!important;
+  }
+  .premium-v2 .pv-coaching-grid h2{
+    font-size:clamp(1.9rem,8vw,2.35rem)!important;
+    line-height:1.12!important;
+    letter-spacing:-.035em!important;
+    margin:0 0 14px!important;
+    max-width:100%!important;
+    text-wrap:balance!important;
+  }
+  .premium-v2 .pv-coaching-grid > div:first-child > p{
+    font-size:16px!important;
+    line-height:1.55!important;
+    margin:0 0 18px!important;
+    max-width:100%!important;
+  }
+  .premium-v2 .pv-support-lines{
+    margin-top:0!important;
+    border-top:1px solid var(--line)!important;
+  }
+  .premium-v2 .pv-support-lines a{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:4px!important;
+    padding:13px 0!important;
+    font-size:16px!important;
+    line-height:1.45!important;
+  }
+  .premium-v2 .pv-support-lines b{
+    font-size:16px!important;
+    line-height:1.4!important;
+  }
+  .premium-v2 .pv-support-lines span{
+    font-size:15px!important;
+    line-height:1.45!important;
+  }
+  .premium-v2 .pv-coaching-image{
+    width:100%!important;
+    height:220px!important;
+    min-height:220px!important;
+    aspect-ratio:auto!important;
+    border-radius:16px!important;
+    margin-top:0!important;
+    overflow:hidden!important;
+  }
+  .premium-v2 .pv-coaching-image img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+}
+@media (max-width:420px){
+  .premium-v2 .pv-coaching.new-section{padding:32px 0!important}
+  .premium-v2 .pv-coaching .container{width:min(100% - 22px,660px)!important}
+  .premium-v2 .pv-coaching-grid h2{font-size:clamp(1.75rem,8.5vw,2.05rem)!important}
+  .premium-v2 .pv-coaching-image{height:190px!important;min-height:190px!important}
+}
+
+/* === About page dark-mode contrast fix === */
+body.dark.page-about,
+body.dark.page-about main,
+body.dark.page-about .section,
+body.dark.page-about .section-sm,
+body.dark.page-about .examora-about-vision,
+body.dark.page-about .examora-why-choose,
+body.dark.page-about .cta-section{
+  background:#000!important;
+  color:#fff!important;
+}
+body.dark.page-about :is(h1,h2,h3,h4,p,li,strong,.lead,.muted,.section-title){
+  color:#fff!important;
+  opacity:1!important;
+}
+body.dark.page-about :is(.eyebrow,.breadcrumbs,.num){
+  color:#fff!important;
+  opacity:1!important;
+}
+body.dark.page-about .breadcrumbs{
+  background:rgba(0,0,0,.72)!important;
+  border:1px solid #fff!important;
+  padding:.5rem .75rem!important;
+  border-radius:10px!important;
+  display:inline-flex!important;
+  width:auto!important;
+}
+body.dark.page-about .page-hero::before{
+  background:rgba(0,0,0,.58)!important;
+}
+body.dark.page-about :is(.analytics-card,.process-step,.examora-vision-card,.cta){
+  background:#000!important;
+  color:#fff!important;
+  border-color:#fff!important;
+}
+body.dark.page-about :is(.analytics-card,.process-step,.examora-vision-card,.cta) :is(h2,h3,h4,p,span,strong,.muted,.big){
+  color:#fff!important;
+  opacity:1!important;
+}
+body.dark.page-about .stat,
+body.dark.page-about .process-step{
+  border-color:#fff!important;
+}
+body.dark.page-about .cta .btn{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#fff!important;
+}
+body.dark.page-about .cta .btn:hover{
+  background:#fff!important;
+  color:#173f67!important;
+  border-color:#173f67!important;
+}
+body.dark.page-about .visual-image-box,
+body.dark.page-about .image-slot{
+  border-color:#fff!important;
+}
+
+/* === Courses CTA contrast + primary background fix === */
+body:not(.dark).page-courses .catalog-footer-cta,
+body.dark.page-courses .catalog-footer-cta,
+body:not(.dark) .catalog-v3 .catalog-footer-cta,
+body.dark .catalog-v3 .catalog-footer-cta{
+  background:#173f67!important;
+  color:#fff!important;
+}
+body:not(.dark).page-courses .catalog-footer-cta h2,
+body:not(.dark).page-courses .catalog-footer-cta p,
+body:not(.dark).page-courses .catalog-footer-cta .catalog-overline,
+body.dark.page-courses .catalog-footer-cta h2,
+body.dark.page-courses .catalog-footer-cta p,
+body.dark.page-courses .catalog-footer-cta .catalog-overline,
+body:not(.dark) .catalog-v3 .catalog-footer-cta h2,
+body:not(.dark) .catalog-v3 .catalog-footer-cta p,
+body:not(.dark) .catalog-v3 .catalog-footer-cta .catalog-overline,
+body.dark .catalog-v3 .catalog-footer-cta h2,
+body.dark .catalog-v3 .catalog-footer-cta p,
+body.dark .catalog-v3 .catalog-footer-cta .catalog-overline{
+  color:#fff!important;
+  opacity:1!important;
+}
+body .catalog-v3 .catalog-footer-cta .btn,
+body.dark .catalog-v3 .catalog-footer-cta .btn{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#fff!important;
+}
+body .catalog-v3 .catalog-footer-cta .btn:hover,
+body.dark .catalog-v3 .catalog-footer-cta .btn:hover{
+  background:#fff!important;
+  color:#173f67!important;
+  border-color:#fff!important;
+}
+
+/* === Instructor Faculty Directory: remove dead space, balanced 4-card grid === */
+.page-instructors .faculty-directory{
+  padding-top:64px!important;
+  padding-bottom:64px!important;
+}
+.page-instructors .faculty-directory .new-section-head{
+  margin-bottom:28px!important;
+  justify-content:center!important;
+  text-align:center!important;
+}
+.page-instructors .faculty-directory .new-section-head>div{
+  max-width:760px!important;
+  margin-inline:auto!important;
+}
+.page-instructors .faculty-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:18px!important;
+  align-items:stretch!important;
+}
+.page-instructors .faculty-card{
+  height:auto!important;
+  min-height:0!important;
+  padding:0!important;
+}
+.page-instructors .faculty-card-image{
+  height:auto!important;
+  aspect-ratio:4/3!important;
+}
+.page-instructors .faculty-card-image img{
+  width:100%!important;
+  height:100%!important;
+  aspect-ratio:auto!important;
+  object-fit:cover!important;
+}
+.page-instructors .faculty-card-body{
+  padding:20px!important;
+  gap:0!important;
+}
+.page-instructors .faculty-card-body p{
+  margin-bottom:8px!important;
+}
+.page-instructors .faculty-card-body ul{
+  margin:12px 0!important;
+  padding:12px 0!important;
+}
+.page-instructors .faculty-card-body a{
+  margin-top:8px!important;
+}
+@media(max-width:1180px){
+  .page-instructors .faculty-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+}
+@media(max-width:640px){
+  .page-instructors .faculty-directory{
+    padding-top:42px!important;
+    padding-bottom:42px!important;
+  }
+  .page-instructors .faculty-grid{
+    grid-template-columns:1fr!important;
+    gap:16px!important;
+  }
+  .page-instructors .faculty-card-image{
+    aspect-ratio:16/10!important;
+  }
+}
+
+/* === Instructor page responsive pass: hero/image + tablet/mobile === */
+.page-instructors .faculty-hero{
+  overflow:hidden!important;
+}
+.page-instructors .faculty-hero-grid{
+  min-width:0!important;
+}
+.page-instructors .faculty-hero-copy,
+.page-instructors .faculty-hero-visual{
+  min-width:0!important;
+}
+.page-instructors .faculty-hero-visual{
+  width:100%!important;
+}
+.page-instructors .faculty-hero-visual>img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:4/5!important;
+  object-fit:cover!important;
+  object-position:center 24%!important;
+  max-height:560px!important;
+}
+.page-instructors .faculty-quote{
+  max-width:min(330px,calc(100% - 24px))!important;
+}
+.page-instructors .faculty-feature-grid,
+.page-instructors .faculty-method-grid{
+  min-width:0!important;
+}
+.page-instructors .faculty-profile-spot,
+.page-instructors .faculty-method-image,
+.page-instructors .faculty-method-copy{
+  min-width:0!important;
+}
+.page-instructors .faculty-method-image img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+
+/* Tablet: prevent squeezed hero copy/image and cramped two-column content. */
+@media (max-width:1024px){
+  .page-instructors .faculty-hero{
+    padding:54px 0 62px!important;
+  }
+  .page-instructors .faculty-hero-grid{
+    grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr)!important;
+    gap:32px!important;
+    align-items:center!important;
+  }
+  .page-instructors .faculty-hero-copy h1{
+    font-size:clamp(2.7rem,6vw,4.35rem)!important;
+    line-height:1.04!important;
+    max-width:100%!important;
+  }
+  .page-instructors .faculty-hero-copy>p{
+    max-width:100%!important;
+  }
+  .page-instructors .faculty-hero-visual>img{
+    aspect-ratio:4/5!important;
+    max-height:470px!important;
+    border-radius:22px 72px 22px 22px!important;
+  }
+  .page-instructors .faculty-quote{
+    left:14px!important;
+    right:14px!important;
+    bottom:14px!important;
+    width:auto!important;
+    max-width:none!important;
+    padding:16px!important;
+  }
+  .page-instructors .faculty-feature-grid,
+  .page-instructors .faculty-method-grid{
+    grid-template-columns:1fr!important;
+    gap:30px!important;
+  }
+  .page-instructors .faculty-profile-spot{
+    height:auto!important;
+  }
+  .page-instructors .faculty-method-image{
+    height:auto!important;
+    aspect-ratio:16/9!important;
+  }
+  .page-instructors .faculty-match-box{
+    gap:24px!important;
+    padding:34px!important;
+  }
+}
+
+/* Mobile: full-width image, compact spacing, no crop/overflow. */
+@media (max-width:767px){
+  .page-instructors .faculty-hero{
+    padding:38px 0 44px!important;
+  }
+  .page-instructors .faculty-hero-grid{
+    grid-template-columns:1fr!important;
+    gap:24px!important;
+  }
+  .page-instructors .faculty-hero-copy h1{
+    font-size:clamp(2.2rem,10vw,3.25rem)!important;
+    line-height:1.06!important;
+    letter-spacing:-.045em!important;
+    margin:14px 0 16px!important;
+  }
+  .page-instructors .faculty-hero-copy>p{
+    font-size:16px!important;
+    line-height:1.65!important;
+  }
+  .page-instructors .new-hero-actions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+  }
+  .page-instructors .new-hero-actions .btn{
+    width:100%!important;
+  }
+  .page-instructors .faculty-hero-index{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:8px!important;
+    margin-top:24px!important;
+    padding-top:14px!important;
+  }
+  .page-instructors .faculty-hero-index span{
+    min-width:0!important;
+    text-align:center!important;
+  }
+  .page-instructors .faculty-hero-visual>img{
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:16/11!important;
+    max-height:none!important;
+    object-fit:cover!important;
+    object-position:center 20%!important;
+    border-radius:18px!important;
+  }
+  .page-instructors .faculty-quote{
+    position:relative!important;
+    inset:auto!important;
+    width:100%!important;
+    max-width:none!important;
+    margin-top:10px!important;
+    box-shadow:none!important;
+  }
+  .page-instructors .faculty-feature,
+  .page-instructors .faculty-directory,
+  .page-instructors .faculty-method,
+  .page-instructors .faculty-match{
+    padding-top:42px!important;
+    padding-bottom:42px!important;
+  }
+  .page-instructors .faculty-profile-top{
+    grid-template-columns:88px minmax(0,1fr)!important;
+    gap:14px!important;
+    align-items:start!important;
+  }
+  .page-instructors .faculty-profile-top img{
+    width:88px!important;
+    height:108px!important;
+    object-fit:cover!important;
+  }
+  .page-instructors .faculty-profile-summary{
+    grid-template-columns:1fr!important;
+  }
+  .page-instructors .faculty-tags{
+    gap:6px!important;
+  }
+  .page-instructors .faculty-method-image{
+    aspect-ratio:16/10!important;
+    height:auto!important;
+    border-radius:18px!important;
+    overflow:hidden!important;
+  }
+  .page-instructors .faculty-method-list>div{
+    min-width:0!important;
+  }
+  .page-instructors .faculty-match-box{
+    padding:26px 20px!important;
+    border-radius:18px!important;
+  }
+  .page-instructors .faculty-match-actions{
+    width:100%!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+  }
+  .page-instructors .faculty-match-actions .btn{
+    width:100%!important;
+  }
+}
+
+@media (max-width:480px){
+  .page-instructors .faculty-hero-index{
+    grid-template-columns:1fr!important;
+    text-align:left!important;
+  }
+  .page-instructors .faculty-hero-index span{
+    text-align:left!important;
+  }
+  .page-instructors .faculty-profile-top{
+    grid-template-columns:1fr!important;
+  }
+  .page-instructors .faculty-profile-top img{
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:16/10!important;
+  }
+}
+
+/* === Instructor Featured Mentor text + teaching-method equal-height fix === */
+.page-instructors .faculty-profile-spot{
+  padding:clamp(20px,2.2vw,28px)!important;
+}
+.page-instructors .faculty-profile-top p{
+  font-size:16px!important;
+  line-height:1.6!important;
+  color:var(--ink)!important;
+  margin-top:8px!important;
+}
+.page-instructors .faculty-profile-top h3{
+  font-size:clamp(1.45rem,2.2vw,1.8rem)!important;
+  line-height:1.15!important;
+}
+.page-instructors .faculty-profile-top span{
+  font-size:.75rem!important;
+  line-height:1.35!important;
+}
+.page-instructors .faculty-tags span{
+  font-size:.78rem!important;
+  line-height:1.25!important;
+  padding:8px 11px!important;
+}
+.page-instructors .faculty-profile-summary span{
+  font-size:.72rem!important;
+  line-height:1.35!important;
+}
+.page-instructors .faculty-profile-summary strong{
+  font-size:.95rem!important;
+  line-height:1.35!important;
+}
+.page-instructors .faculty-profile-note h4{
+  font-size:1rem!important;
+  line-height:1.35!important;
+}
+.page-instructors .faculty-profile-note ul{
+  font-size:14px!important;
+  line-height:1.55!important;
+  gap:7px!important;
+}
+.page-instructors .faculty-profile-spot>.text-link{
+  font-size:.9rem!important;
+  line-height:1.4!important;
+  margin-top:2px!important;
+}
+
+/* Side-by-side method layout: image and copy must share the same height. */
+.page-instructors .faculty-method-grid{
+  align-items:stretch!important;
+}
+.page-instructors .faculty-method-image,
+.page-instructors .faculty-method-copy{
+  height:100%!important;
+}
+.page-instructors .faculty-method-image{
+  min-height:0!important;
+  overflow:hidden!important;
+}
+.page-instructors .faculty-method-image img{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  object-fit:cover!important;
+}
+.page-instructors .faculty-method-copy{
+  display:flex!important;
+  flex-direction:column!important;
+}
+.page-instructors .faculty-method-list{
+  flex:1!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:space-between!important;
+}
+
+/* Keep equal-height side-by-side behavior on medium/large screens. */
+@media (min-width:901px){
+  .page-instructors .faculty-method-grid{
+    grid-template-columns:minmax(0,.9fr) minmax(0,1fr)!important;
+    align-items:stretch!important;
+  }
+  .page-instructors .faculty-method-image{
+    aspect-ratio:auto!important;
+    height:100%!important;
+  }
+}
+
+/* Tablet/phone: stack naturally, keep text readable and image proportional. */
+@media (max-width:900px){
+  .page-instructors .faculty-method-grid{
+    grid-template-columns:1fr!important;
+    gap:24px!important;
+  }
+  .page-instructors .faculty-method-image{
+    height:auto!important;
+    aspect-ratio:16/10!important;
+  }
+  .page-instructors .faculty-method-image img{
+    min-height:0!important;
+  }
+  .page-instructors .faculty-profile-top p{
+    font-size:16px!important;
+  }
+}
+
+@media (max-width:560px){
+  .page-instructors .faculty-profile-spot{
+    padding:18px!important;
+  }
+  .page-instructors .faculty-profile-top{
+    grid-template-columns:82px minmax(0,1fr)!important;
+    gap:12px!important;
+  }
+  .page-instructors .faculty-profile-top img{
+    width:82px!important;
+    height:100px!important;
+  }
+  .page-instructors .faculty-profile-top h3{
+    font-size:1.35rem!important;
+  }
+  .page-instructors .faculty-profile-top p{
+    font-size:15px!important;
+    line-height:1.5!important;
+  }
+  .page-instructors .faculty-profile-note ul{
+    font-size:14px!important;
+  }
+}
+
+body.dark.page-instructors .faculty-profile-top p,
+body.dark.page-instructors .faculty-profile-note h4,
+body.dark.page-instructors .faculty-profile-note li,
+body.dark.page-instructors .faculty-profile-summary strong{
+  color:#fff!important;
+}
+
+/* Resource card content-fill pass */
+.resources-bento .resource-detail-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin:18px 0 0;
+}
+.resources-bento .resource-detail-grid>div{
+  padding:12px 13px;
+  border:1px solid #173f67;
+  border-radius:12px;
+  background:#fff;
+}
+.resources-bento .resource-detail-grid span{
+  display:block;
+  margin-bottom:4px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#173f67;
+}
+.resources-bento .resource-detail-grid strong{
+  display:block;
+  font-size:15px;
+  line-height:1.35;
+  color:#000;
+}
+.resources-bento .resource-use-note{
+  margin-top:16px!important;
+  padding-top:14px;
+  border-top:1px solid #173f67;
+  font-size:16px!important;
+  line-height:1.55;
+}
+.resources-bento .resource-compact-list{
+  margin:18px 0 0;
+  padding-left:19px;
+  display:grid;
+  gap:8px;
+  font-size:16px;
+  line-height:1.5;
+}
+.resources-bento .resource-practice-steps{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin:22px 0 0;
+}
+.resources-bento .resource-practice-steps>div{
+  display:flex;
+  gap:12px;
+  padding:15px;
+  border:1px solid #173f67;
+  border-radius:14px;
+  background:#fff;
+  color:#000;
+}
+.resources-bento .resource-practice-steps b{
+  color:#173f67;
+  font-size:13px;
+}
+.resources-bento .resource-practice-steps span,
+.resources-bento .resource-practice-steps strong,
+.resources-bento .resource-practice-steps small{
+  display:block;
+}
+.resources-bento .resource-practice-steps strong{font-size:16px;color:#000}
+.resources-bento .resource-practice-steps small{margin-top:4px;font-size:14px;line-height:1.45;color:#000}
+.resources-bento .resource-detail-grid-wide{grid-template-columns:repeat(3,minmax(0,1fr))}
+body.dark .resources-bento .resource-detail-grid>div,
+body.dark .resources-bento .resource-practice-steps>div{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#173f67!important;
+}
+body.dark .resources-bento .resource-detail-grid strong,
+body.dark .resources-bento .resource-practice-steps strong,
+body.dark .resources-bento .resource-practice-steps small{color:#000!important}
+@media(max-width:900px){
+  .resources-bento .resource-practice-steps{grid-template-columns:1fr}
+  .resources-bento .resource-detail-grid-wide{grid-template-columns:1fr 1fr}
+  .resources-bento .resource-detail-grid-wide>div:last-child{grid-column:1/-1}
+}
+@media(max-width:620px){
+  .resources-bento .resource-detail-grid,
+  .resources-bento .resource-detail-grid-wide{grid-template-columns:1fr}
+  .resources-bento .resource-detail-grid-wide>div:last-child{grid-column:auto}
+}
+
+/* === Resources page definitive Light/Dark contrast pass ===
+   Strict palette: #000000, #FFFFFF, #173f67 only.
+   Removes faded/muted/secondary shades from Resources UI.
+*/
+.page-resources,
+.resources-bento{
+  --rb-primary:#173f67!important;
+  --rb-secondary:#173f67!important;
+  --bento-primary:#173f67!important;
+  --bento-secondary:#173f67!important;
+  --bento-bg:#FFFFFF!important;
+  --bento-card:#FFFFFF!important;
+  --bento-ink:#000000!important;
+  --bento-line:#173f67!important;
+}
+
+/* LIGHT MODE: white surfaces + black body copy + solid primary accents. */
+body:not(.dark).page-resources .resources-bento,
+body:not(.dark) .resources-bento{
+  background:#FFFFFF!important;
+  color:#000000!important;
+}
+body:not(.dark).page-resources .resources-bento :is(.bento-shell,.bento-soft),
+body:not(.dark) .resources-bento :is(.bento-shell,.bento-soft){
+  background:#FFFFFF!important;
+}
+body:not(.dark).page-resources .resources-bento :is(.bento-card,.resource-item,.resource-toolkit-main,.bento-photo-label),
+body:not(.dark) .resources-bento :is(.bento-card,.resource-item,.resource-toolkit-main,.bento-photo-label){
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+body:not(.dark) .resources-bento :is(h1,h2,h3,h4,p,li,strong,small,.resource-paper-meta span,.resource-use-note){
+  color:#000000!important;
+  opacity:1!important;
+}
+body:not(.dark) .resources-bento :is(.bento-kicker,.bento-index,.resource-type,.bento-text-link,.resource-tool-links b,.resource-paper-meta b){
+  color:#173f67!important;
+  opacity:1!important;
+}
+body:not(.dark) .resources-bento .bento-heading h1 span{
+  color:#173f67!important;
+}
+body:not(.dark) .resources-bento .bento-tags span{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+/* Accent resource cards stay white, not filled blue. */
+body:not(.dark) .resources-bento .bento-card-accent{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+body:not(.dark) .resources-bento .bento-card-accent :is(h2,h3,p,li,strong){color:#000000!important}
+body:not(.dark) .resources-bento .bento-card-accent :is(.bento-index,.resource-type,.bento-text-link){color:#173f67!important}
+
+/* Intentional dark cards in light theme: pure black, white copy, solid primary controls. */
+body:not(.dark) .resources-bento .bento-card-dark{
+  background:#000000!important;
+  color:#FFFFFF!important;
+  border-color:#000000!important;
+}
+body:not(.dark) .resources-bento .bento-card-dark :is(h1,h2,h3,h4,p,li,strong,small){
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+body:not(.dark) .resources-bento .bento-card-dark :is(.bento-index,.resource-type){
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+body:not(.dark) .resources-bento .resource-filter{
+  background:#000000!important;
+  color:#FFFFFF!important;
+  border-color:#FFFFFF!important;
+}
+body:not(.dark) .resources-bento .resource-filter span{color:#FFFFFF!important;opacity:1!important}
+body:not(.dark) .resources-bento .resource-filter.active{
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+
+/* DARK MODE: pure black surfaces; no grey/faded text or shaded primary. */
+body.dark.page-resources,
+body.dark .resources-bento{
+  --bento-bg:#000000!important;
+  --bento-card:#000000!important;
+  --bento-ink:#FFFFFF!important;
+  --bento-line:#173f67!important;
+  background:#000000!important;
+  color:#FFFFFF!important;
+}
+body.dark .resources-bento :is(.bento-shell,.bento-soft){background:#000000!important}
+body.dark .resources-bento :is(.bento-card,.resource-item,.resource-toolkit-main){
+  background:#000000!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+body.dark .resources-bento :is(h1,h2,h3,h4,p,li,strong,small,.resource-paper-meta span,.resource-use-note){
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+/* Do not render primary as faded text on black: use white text and solid-primary borders/controls instead. */
+body.dark .resources-bento :is(.bento-kicker,.bento-index,.resource-type){
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+body.dark .resources-bento :is(.bento-text-link,.resource-tool-links b,.resource-paper-meta b){
+  color:#FFFFFF!important;
+  opacity:1!important;
+  text-decoration-color:#173f67!important;
+}
+body.dark .resources-bento .bento-heading h1 span{color:#FFFFFF!important}
+body.dark .resources-bento .bento-card-accent{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+body.dark .resources-bento .bento-card-accent :is(h2,h3,p,li,strong,small){color:#000000!important}
+body.dark .resources-bento .bento-card-accent :is(.bento-index,.resource-type,.bento-text-link){color:#173f67!important;opacity:1!important}
+body.dark .resources-bento .bento-card-dark{
+  background:#000000!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+body.dark .resources-bento .bento-card-dark :is(h1,h2,h3,h4,p,li,strong,small,.bento-index,.resource-type){color:#FFFFFF!important;opacity:1!important}
+body.dark .resources-bento .resource-filter{
+  background:#000000!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+body.dark .resources-bento .resource-filter span{color:#FFFFFF!important;opacity:1!important}
+body.dark .resources-bento .resource-filter.active{
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+body.dark .resources-bento .resource-filter.active span{color:#FFFFFF!important}
+body.dark .resources-bento .bento-tags span{
+  background:#000000!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+/* White sub-cards remain high contrast in both themes. */
+body.dark .resources-bento .resource-detail-grid>div,
+body.dark .resources-bento .resource-practice-steps>div{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+body.dark .resources-bento .resource-detail-grid :is(span,strong),
+body.dark .resources-bento .resource-practice-steps :is(b,strong,small){
+  color:#000000!important;
+  opacity:1!important;
+}
+body.dark .resources-bento .resource-detail-grid span,
+body.dark .resources-bento .resource-practice-steps b{color:#173f67!important}
+/* Photo overlays must remain readable. */
+body:not(.dark) .resources-bento .bento-photo-label{background:#FFFFFF!important;color:#000000!important}
+body.dark .resources-bento .bento-photo-label{background:#000000!important;color:#FFFFFF!important;border:1px solid #173f67!important}
+body.dark .resources-bento .bento-photo-label :is(h2,h3,p){color:#FFFFFF!important}
+
+/* === Resources + Auth definitive light/dark contrast pass ===
+   Three-color system only: black, white, primary #173f67.
+*/
+:root{--examora-primary:#173f67;--examora-black:#000;--examora-white:#fff}
+
+/* AUTH — Light mode must never inherit pale/dark-theme text. */
+body.redesigned-auth:not(.dark),
+body.redesigned-auth:not(.dark) .auth-wrap,
+body.redesigned-auth:not(.dark) .auth-form,
+body.redesigned-auth:not(.dark) .auth-card{
+  background:#fff!important;
+  color:#000!important;
+}
+body.redesigned-auth:not(.dark) .auth-card :is(h1,h2,h3,h4,p,label,span,strong,small,a){
+  color:#000!important;
+  opacity:1!important;
+}
+body.redesigned-auth:not(.dark) .auth-card .muted,
+body.redesigned-auth:not(.dark) .auth-card .small,
+body.redesigned-auth:not(.dark) .auth-card .helper-text,
+body.redesigned-auth:not(.dark) .auth-card .auth-status{
+  color:#000!important;
+  opacity:1!important;
+}
+body.redesigned-auth:not(.dark) .auth-card input,
+body.redesigned-auth:not(.dark) .auth-card select,
+body.redesigned-auth:not(.dark) .auth-card textarea{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#173f67!important;
+}
+body.redesigned-auth:not(.dark) .auth-card input::placeholder,
+body.redesigned-auth:not(.dark) .auth-card textarea::placeholder{
+  color:#000!important;
+  opacity:.72!important;
+}
+body.redesigned-auth:not(.dark) .auth-card a:not(.btn):not(.brand){
+  color:#173f67!important;
+  opacity:1!important;
+}
+body.redesigned-auth:not(.dark) .icon-btn{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#173f67!important;
+}
+body.redesigned-auth:not(.dark) .auth-art{
+  background:#fff!important;
+  color:#000!important;
+}
+body.redesigned-auth:not(.dark) .auth-art :is(h1,h2,h3,p,li,strong,span){
+  color:#000!important;
+  opacity:1!important;
+}
+
+/* AUTH — Dark mode: primary must stay solid, never muted/washed. */
+body.dark.redesigned-auth,
+body.dark.redesigned-auth .auth-wrap,
+body.dark.redesigned-auth .auth-form,
+body.dark.redesigned-auth .auth-card,
+body.dark.redesigned-auth .auth-art{
+  background:#000!important;
+  color:#fff!important;
+}
+body.dark.redesigned-auth .auth-card :is(h1,h2,h3,h4,p,label,span,strong,small,a),
+body.dark.redesigned-auth .auth-art :is(h1,h2,h3,h4,p,li,strong,span){
+  color:#fff!important;
+  opacity:1!important;
+}
+body.dark.redesigned-auth .auth-card .muted,
+body.dark.redesigned-auth .auth-card .small,
+body.dark.redesigned-auth .auth-card .helper-text,
+body.dark.redesigned-auth .auth-card .auth-status{
+  color:#fff!important;
+  opacity:1!important;
+}
+body.dark.redesigned-auth .auth-card input,
+body.dark.redesigned-auth .auth-card select,
+body.dark.redesigned-auth .auth-card textarea{
+  background:#000!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+}
+body.dark.redesigned-auth .auth-card input::placeholder,
+body.dark.redesigned-auth .auth-card textarea::placeholder{
+  color:#fff!important;
+  opacity:.78!important;
+}
+body.dark.redesigned-auth .auth-card .btn-primary{
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+  opacity:1!important;
+  filter:none!important;
+}
+body.dark.redesigned-auth .auth-card .btn-secondary,
+body.dark.redesigned-auth .auth-card .social-btn{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#fff!important;
+}
+body.dark.redesigned-auth .icon-btn{
+  background:#000!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+}
+
+/* RESOURCES — enforce solid primary, no opacity/filter fading. */
+body.page-resources .resources-bento :is(.resource-filter.active,.btn-primary,.bento-primary,.primary){
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+  opacity:1!important;
+  filter:none!important;
+}
+body.dark.page-resources .resources-bento :is(.resource-filter.active,.btn-primary,.bento-primary,.primary){
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+  opacity:1!important;
+  filter:none!important;
+}
+body.page-resources .resources-bento [style*="opacity"],
+body.redesigned-auth [style*="opacity"]{
+  opacity:1;
+}
+
+/* === Definitive Light Mode visibility fix: Resources + Auth === */
+/* Resources: white surfaces -> black readable text */
+body.page-resources:not(.dark) .resources-bento :is(
+  .bento-heading,
+  .bento-section-title,
+  .bento-card:not(.bento-card-dark):not(.bento-card-photo),
+  .resource-toolkit-main,
+  .resource-item:not(.bento-card-dark),
+  .resource-detail-grid>div,
+  .resource-practice-steps>div
+){
+  color:#000!important;
+}
+body.page-resources:not(.dark) .resources-bento :is(
+  .bento-heading h1,.bento-heading h2,.bento-heading h3,
+  .bento-heading p,
+  .bento-section-title h1,.bento-section-title h2,.bento-section-title h3,
+  .bento-section-title p,
+  .bento-card:not(.bento-card-dark):not(.bento-card-photo) h1,
+  .bento-card:not(.bento-card-dark):not(.bento-card-photo) h2,
+  .bento-card:not(.bento-card-dark):not(.bento-card-photo) h3,
+  .bento-card:not(.bento-card-dark):not(.bento-card-photo) h4,
+  .bento-card:not(.bento-card-dark):not(.bento-card-photo) p,
+  .bento-card:not(.bento-card-dark):not(.bento-card-photo) li,
+  .bento-card:not(.bento-card-dark):not(.bento-card-photo) strong,
+  .bento-card:not(.bento-card-dark):not(.bento-card-photo) small,
+  .resource-detail-grid strong,
+  .resource-practice-steps strong,
+  .resource-practice-steps small
+){
+  color:#000!important;
+  opacity:1!important;
+}
+body.page-resources:not(.dark) .resources-bento :is(
+  .bento-kicker,.bento-index,.resource-type,.bento-text-link,
+  .resource-tool-links b,.resource-paper-meta b,.resource-detail-grid span,
+  .resource-practice-steps b
+){
+  color:#173f67!important;
+  opacity:1!important;
+  filter:none!important;
+}
+body.page-resources:not(.dark) .resources-bento .bento-tags span{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#173f67!important;
+}
+/* Intentionally dark resource cards stay dark with white text in Light Mode. */
+body.page-resources:not(.dark) .resources-bento .bento-card-dark{
+  background:#000!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+}
+body.page-resources:not(.dark) .resources-bento .bento-card-dark :is(h1,h2,h3,h4,p,li,strong,small){
+  color:#fff!important;
+  opacity:1!important;
+}
+body.page-resources:not(.dark) .resources-bento .bento-card-dark :is(.bento-kicker,.bento-index,.resource-type){
+  color:#fff!important;
+  opacity:1!important;
+}
+body.page-resources:not(.dark) .resources-bento .bento-card-dark :is(.resource-detail-grid>div,.resource-practice-steps>div){
+  background:#fff!important;
+  color:#000!important;
+  border-color:#173f67!important;
+}
+body.page-resources:not(.dark) .resources-bento .bento-card-dark :is(.resource-detail-grid strong,.resource-practice-steps strong,.resource-practice-steps small){
+  color:#000!important;
+}
+body.page-resources:not(.dark) .resources-bento .bento-card-dark :is(.resource-detail-grid span,.resource-practice-steps b){
+  color:#173f67!important;
+}
+/* Photo overlays must be explicit and readable. */
+body.page-resources:not(.dark) .resources-bento .bento-photo-label{
+  background:#fff!important;
+  color:#000!important;
+}
+body.page-resources:not(.dark) .resources-bento .bento-photo-label :is(h1,h2,h3,p,strong,small){
+  color:#000!important;
+  opacity:1!important;
+}
+body.page-resources:not(.dark) .resources-bento .bento-photo-label :is(.bento-index,.resource-type){
+  color:#173f67!important;
+}
+
+/* Auth: Light Mode white surfaces always use black text and solid primary accents. */
+body.redesigned-auth:not(.dark) :is(.auth-card,.auth-form,.auth-wrap,.auth-tech-wrap){
+  color:#000!important;
+}
+body.redesigned-auth:not(.dark) :is(.auth-card,.auth-form,.auth-wrap,.auth-tech-wrap) :is(h1,h2,h3,h4,p,label,small,strong,span,li){
+  color:#000!important;
+  opacity:1!important;
+  filter:none!important;
+}
+body.redesigned-auth:not(.dark) :is(.auth-card,.auth-form,.auth-wrap,.auth-tech-wrap) a:not(.btn):not(.brand){
+  color:#173f67!important;
+  opacity:1!important;
+}
+body.redesigned-auth:not(.dark) .auth-card :is(.muted,.small,.helper-text,.auth-status){
+  color:#000!important;
+  opacity:1!important;
+}
+body.redesigned-auth:not(.dark) .auth-card input,
+body.redesigned-auth:not(.dark) .auth-card select,
+body.redesigned-auth:not(.dark) .auth-card textarea{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#173f67!important;
+}
+body.redesigned-auth:not(.dark) .auth-card :is(input,textarea)::placeholder{
+  color:#000!important;
+  opacity:.72!important;
+}
+/* Solid primary accents: no shaded/washed navy in either theme. */
+body.page-resources .resources-bento :is(.resource-filter.active,.btn-primary,.primary),
+body.redesigned-auth :is(.btn-primary,.rtl-toggle.active,[aria-pressed="true"]){
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+  opacity:1!important;
+  filter:none!important;
+  box-shadow:none!important;
+}
+
+/* === Results page final visibility + content balance pass === */
+/* Prevent the Resources toast from peeking above the viewport when hidden. */
+.resource-toast{opacity:0!important;visibility:hidden!important;transform:translate(-50%,220%)!important;pointer-events:none!important}
+.resource-toast.show{opacity:1!important;visibility:visible!important;transform:translate(-50%,0)!important}
+
+/* Results Light Mode: white surfaces, solid black text, solid primary labels. */
+body:not(.dark).page-results,
+body:not(.dark).page-results main,
+body:not(.dark).page-results .bento-shell,
+body:not(.dark).page-results .bento-soft{background:#fff!important;color:#000!important}
+body:not(.dark).page-results .bento-card{background:#fff!important;color:#000!important;border-color:#173f67!important}
+body:not(.dark).page-results .bento-card :is(h1,h2,h3,h4,p,small,strong,li){color:#000!important;opacity:1!important}
+body:not(.dark).page-results :is(.bento-index,.bento-kicker,.sample-label){color:#173f67!important;opacity:1!important}
+body:not(.dark).page-results .journey-timeline span{background:#fff!important;color:#000!important;border:1px solid #173f67!important}
+body:not(.dark).page-results .journey-timeline b{color:#173f67!important}
+body:not(.dark).page-results .results-meter{background:#fff!important;border:1px solid #173f67!important}
+body:not(.dark).page-results .results-meter span{background:#173f67!important}
+
+/* Useful detail blocks fill former empty space without adding filler. */
+.page-results .result-filled-card{display:flex!important;flex-direction:column!important;gap:14px!important}
+.page-results .result-filled-card>p{margin:0!important}
+.page-results .result-card-details{margin-top:auto;display:grid;gap:9px;padding-top:16px;border-top:1px solid #173f67}
+.page-results .result-card-details strong{font-size:1rem;line-height:1.4;color:#000!important}
+.page-results .result-card-details span{display:flex;align-items:center;gap:8px;font-size:1rem;line-height:1.45;color:#000!important}
+.page-results .result-card-details span::before{content:"";width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#173f67}
+
+/* Results Dark Mode: only black, white and the single solid primary navy. */
+body.dark.page-results,
+body.dark.page-results main,
+body.dark.page-results .bento-shell,
+body.dark.page-results .bento-soft{background:#000!important;color:#fff!important}
+body.dark.page-results .bento-card{background:#000!important;color:#fff!important;border-color:#173f67!important}
+body.dark.page-results .bento-card :is(h1,h2,h3,h4,p,small,strong,li){color:#fff!important;opacity:1!important}
+body.dark.page-results :is(.bento-index,.bento-kicker,.sample-label){color:#fff!important;opacity:1!important}
+body.dark.page-results .journey-timeline span{background:#000!important;color:#fff!important;border:1px solid #173f67!important}
+body.dark.page-results .journey-timeline b{color:#fff!important}
+body.dark.page-results .results-meter,
+body.dark.page-results .review-bars b{background:#000!important;border:1px solid #173f67!important}
+body.dark.page-results .results-meter span,
+body.dark.page-results .review-bars i,
+body.dark.page-results .review-status,
+body.dark.page-results .subject-tabs button.active{background:#173f67!important;color:#fff!important;border-color:#173f67!important}
+body.dark.page-results .result-card-details{border-color:#173f67!important}
+body.dark.page-results .result-card-details strong,
+body.dark.page-results .result-card-details span{color:#fff!important}
+body.dark.page-results .result-card-details span::before{background:#173f67!important}
+/* Override older white-card dark-mode exceptions on Results. */
+body.dark.page-results .results-bento .journey-grid .bento-card-dark,
+body.dark.page-results .results-bento .results-journeys .bento-card-dark,
+body.dark.page-results .results-bento .milestone-grid .bento-card,
+body.dark.page-results .bento-card-accent{background:#000!important;color:#fff!important;border-color:#173f67!important}
+body.dark.page-results .results-bento .journey-grid .bento-card-dark :is(h2,h3,p,span,strong),
+body.dark.page-results .results-bento .milestone-grid .bento-card :is(h2,h3,p,span,strong),
+body.dark.page-results .bento-card-accent :is(h2,h3,p,span,strong){color:#fff!important}
+
+@media(max-width:900px){
+  .page-results .result-card-details{margin-top:10px}
+}
+
+/* === Results content / visibility / full-width CTA pass === */
+/* Light mode: all result-card copy must remain visible on white. */
+body:not(.dark).page-results .review-main,
+body:not(.dark).page-results .review-selector{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#173f67!important;
+}
+body:not(.dark).page-results .review-main :is(h1,h2,h3,h4,p,strong,small),
+body:not(.dark).page-results .review-selector :is(h1,h2,h3,h4,p,strong,small),
+body:not(.dark).page-results .review-bars>div>span,
+body:not(.dark).page-results .review-next strong{
+  color:#000!important;
+  opacity:1!important;
+}
+body:not(.dark).page-results .review-top .sample-label,
+body:not(.dark).page-results .review-next>span,
+body:not(.dark).page-results .review-status,
+body:not(.dark).page-results .review-selector>.bento-index{
+  color:#173f67!important;
+  opacity:1!important;
+}
+body:not(.dark).page-results .review-status{
+  background:#fff!important;
+  border:1px solid #173f67!important;
+}
+body:not(.dark).page-results .review-bars b{
+  background:#fff!important;
+  border:1px solid #173f67!important;
+}
+body:not(.dark).page-results .review-bars i{background:#173f67!important}
+body:not(.dark).page-results .subject-tabs button{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#173f67!important;
+}
+body:not(.dark).page-results .subject-tabs button.active{
+  background:#173f67!important;
+  color:#fff!important;
+}
+
+/* Keep the newly filled journey and milestone cards compact and balanced. */
+.page-results .journey-grid>.bento-card,
+.page-results .milestone-grid>.bento-card{
+  min-height:0!important;
+  height:auto!important;
+}
+.page-results .journey-grid .result-filled-card,
+.page-results .milestone-grid .result-filled-card{
+  display:flex!important;
+  flex-direction:column!important;
+}
+.page-results .journey-grid .result-filled-card .result-card-details,
+.page-results .milestone-grid .result-filled-card .result-card-details{
+  margin-top:18px!important;
+}
+
+/* Results CTA: edge-to-edge primary section, no floating dark card. */
+.page-results .results-final{
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  background:#173f67!important;
+}
+.page-results .results-final>.container{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+}
+.page-results .results-final-card{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#173f67!important;
+  color:#fff!important;
+  padding:clamp(34px,5vw,72px) clamp(24px,6vw,96px)!important;
+}
+.page-results .results-final-card :is(h2,p,.bento-kicker){color:#fff!important;opacity:1!important}
+.page-results .results-final-card .btn{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#fff!important;
+}
+.page-results .results-final-card .btn:hover{
+  background:#fff!important;
+  color:#173f67!important;
+  border-color:#fff!important;
+}
+body.dark.page-results .results-final,
+body.dark.page-results .results-final-card{
+  background:#173f67!important;
+  color:#fff!important;
+}
+
+@media(max-width:980px){
+  .page-results .results-final-card{grid-template-columns:1fr!important;gap:22px!important}
+  .page-results .results-final-card .bento-actions{justify-content:flex-start!important}
+}
+@media(max-width:620px){
+  .page-results .results-final-card{padding:30px 20px!important}
+  .page-results .results-final-card .bento-actions{display:grid!important;grid-template-columns:1fr!important;width:100%!important}
+  .page-results .results-final-card .btn{width:100%!important}
+}
+
+/* === Results CTA: persistent primary background in BOTH themes === */
+body.page-results .results-final,
+body:not(.dark).page-results .results-final,
+body.dark.page-results .results-final{
+  width:100%!important;
+  background:#173f67!important;
+  color:#fff!important;
+}
+body.page-results .results-final .container{
+  width:min(1180px,92%)!important;
+}
+body.page-results .results-final .results-final-card,
+body:not(.dark).page-results .results-final .results-final-card,
+body.dark.page-results .results-final .results-final-card{
+  width:100%!important;
+  max-width:none!important;
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+  box-shadow:none!important;
+}
+body.page-results .results-final :is(h1,h2,h3,p,span,strong,.bento-kicker),
+body:not(.dark).page-results .results-final :is(h1,h2,h3,p,span,strong,.bento-kicker),
+body.dark.page-results .results-final :is(h1,h2,h3,p,span,strong,.bento-kicker){
+  color:#fff!important;
+  opacity:1!important;
+}
+body.page-results .results-final .btn,
+body.page-results .results-final .btn-on-dark,
+body.page-results .results-final .results-light-btn{
+  background:#fff!important;
+  color:#000!important;
+  border-color:#fff!important;
+}
+body.page-results .results-final .btn:hover,
+body.page-results .results-final .btn-on-dark:hover,
+body.page-results .results-final .results-light-btn:hover{
+  background:#fff!important;
+  color:#173f67!important;
+  border-color:#fff!important;
+}
+
+/* === Pricing page definitive Light/Dark contrast pass ===
+   Palette: black / white / primary navy only.
+*/
+body.page-pricing .plan-choice em{
+  background:#173f67!important;
+  color:#fff!important;
+  border:1px solid #173f67!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+body.page-pricing .plan-choice em *{color:#fff!important}
+
+/* Light mode: Recommended must stay readable and pricing copy must not fade. */
+body:not(.dark).page-pricing .plan-choice,
+body:not(.dark).page-pricing .offer-panel,
+body:not(.dark).page-pricing .vip-card,
+body:not(.dark).page-pricing .return-card,
+body:not(.dark).page-pricing .price-card{
+  background:#fff!important;
+  color:#000!important;
+}
+body:not(.dark).page-pricing :is(.plan-choice,.offer-panel,.vip-card,.return-card,.price-card) :is(h2,h3,h4,p,small,strong,b,s,li){
+  color:#000!important;
+  opacity:1!important;
+}
+body:not(.dark).page-pricing :is(.eyebrow,.new-kicker,.pass-benefits li>span,.offer-timeline time,.text-link){
+  color:#173f67!important;
+  opacity:1!important;
+}
+
+/* Dark mode: all pricing accent text uses the exact primary navy, not muted shades. */
+body.dark.page-pricing :is(
+  .eyebrow,
+  .new-kicker,
+  .pass-benefits li>span,
+  .offer-timeline time,
+  .text-link,
+  .plan-price strong,
+  .pay-row strong,
+  .discount-meter b
+){
+  color:#173f67!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+body.dark.page-pricing .offer-strip{
+  border-color:#173f67!important;
+  background:#000!important;
+}
+body.dark.page-pricing .offer-strip :is(b,span){
+  color:#173f67!important;
+  opacity:1!important;
+}
+body.dark.page-pricing .radio-dot{
+  border-color:#173f67!important;
+  background:#000!important;
+}
+body.dark.page-pricing .discount-meter i{background:#173f67!important}
+body.dark.page-pricing :is(.vip-card>span,.return-card>span,.popular-tag,.plan-choice em){
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+  opacity:1!important;
+}
+body.dark.page-pricing :is(.vip-card>span,.return-card>span,.popular-tag,.plan-choice em) *{color:#fff!important}
+
+/* Keep regular dark-mode copy highly readable instead of tinted/muted. */
+body.dark.page-pricing :is(.offer-panel,.plan-choice,.vip-card,.return-card,.price-card) :is(h2,h3,h4,p,small,li,b,s){
+  color:#fff!important;
+  opacity:1!important;
+}
+
+/* === Pricing final dark-mode heading + persistent CTA fix === */
+body.dark .page-pricing .pricing-pass h2,
+body.dark .page-pricing .offer-section h2,
+body.dark .page-pricing .pricing-offers h2,
+body.dark .page-pricing .pricing-pass .section-title,
+body.dark .page-pricing .offer-section .section-title,
+body.dark .page-pricing .pricing-offers .section-title,
+body.dark .page-pricing [class*="pricing"] .section-title,
+body.dark .page-pricing [class*="offer"] h2 {
+  color:#173f67!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+
+/* Keep supporting copy readable on black in dark mode. */
+body.dark .page-pricing .pricing-pass p,
+body.dark .page-pricing .offer-section p,
+body.dark .page-pricing .pricing-offers p,
+body.dark .page-pricing [class*="pricing"] p,
+body.dark .page-pricing [class*="offer"] p {
+  color:#fff!important;
+  opacity:1!important;
+}
+
+/* Pricing CTA: always full-width primary, unaffected by theme. */
+.page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta),
+body.dark .page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta),
+body:not(.dark) .page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) {
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  background:#173f67!important;
+  color:#fff!important;
+  border-radius:0!important;
+}
+.page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) :is(h1,h2,h3,h4,p,span,small,strong,.new-kicker,.eyebrow),
+body.dark .page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) :is(h1,h2,h3,h4,p,span,small,strong,.new-kicker,.eyebrow),
+body:not(.dark) .page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) :is(h1,h2,h3,h4,p,span,small,strong,.new-kicker,.eyebrow) {
+  color:#fff!important;
+  opacity:1!important;
+}
+.page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) .container,
+.page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) .cta,
+.page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) .new-cta-inner {
+  width:min(1180px,92%)!important;
+  max-width:1180px!important;
+  margin-inline:auto!important;
+}
+.page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) .btn,
+body.dark .page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) .btn,
+body:not(.dark) .page-pricing :is(.pricing-cta,.cta-section,.new-cta,.final-cta,.pricing-final,.pricing-footer-cta) .btn {
+  background:#fff!important;
+  color:#000!important;
+  border-color:#fff!important;
+}
+
+/* === PRICING: definitive 3-color dark-mode pass ===
+   Only #000000, #FFFFFF, #173f67 are visible in Pricing dark mode.
+*/
+body.dark.page-pricing,
+body.dark.page-pricing main,
+body.dark.page-pricing section:not(.cta-section),
+body.dark.page-pricing .section:not(.cta-section){
+  background:#000000!important;
+  color:#FFFFFF!important;
+}
+
+/* Pricing surfaces */
+body.dark.page-pricing :is(.price-card,.plan-choice,.offer-panel,.vip-card,.return-card,.offer-timeline-card,.alumni-discount,.pass-benefits li){
+  background:#000000!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+  box-shadow:none!important;
+}
+
+/* Main readable copy is always white on black. */
+body.dark.page-pricing :is(.price-card,.plan-choice,.offer-panel,.vip-card,.return-card,.offer-timeline-card,.alumni-discount,.pass-benefits) :is(p,li,small,b,s,strong),
+body.dark.page-pricing :is(.lead,.muted,.small){
+  color:#FFFFFF!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+
+/* Headings/labels/prices use the exact primary color in dark mode. */
+body.dark.page-pricing :is(
+  .section-title,
+  .pricing-pass h2,
+  .offer-section h2,
+  .pricing-offers h2,
+  .price-card h2,
+  .price-card h3,
+  .vip-card h2,
+  .return-card h2,
+  .offer-panel h2,
+  .offer-panel h3,
+  .plan-choice h2,
+  .plan-choice h3,
+  .eyebrow,
+  .new-kicker,
+  .text-link,
+  .plan-price strong,
+  .pay-row strong,
+  .discount-meter b,
+  .pass-benefits li>span,
+  .offer-timeline time,
+  .alumni-discount-head,
+  .alumni-discount-head *,
+  .feature-list li::marker
+){
+  color:#173f67!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+
+/* Primary visual controls stay solid, never shaded. */
+body.dark.page-pricing :is(.popular-tag,.plan-choice em,.vip-card>span,.return-card>span,.offer-strip,.radio-dot.active){
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+  opacity:1!important;
+  box-shadow:none!important;
+}
+body.dark.page-pricing :is(.popular-tag,.plan-choice em,.vip-card>span,.return-card>span,.offer-strip) *{
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+body.dark.page-pricing .discount-meter,
+body.dark.page-pricing .discount-meter span{
+  background:#000000!important;
+  border-color:#173f67!important;
+}
+body.dark.page-pricing .discount-meter i{background:#173f67!important}
+body.dark.page-pricing .radio-dot{background:#000000!important;border-color:#173f67!important}
+
+/* Buttons: only white or primary. */
+body.dark.page-pricing :is(.price-card,.plan-choice,.offer-panel,.vip-card,.return-card) .btn-primary{
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+body.dark.page-pricing :is(.price-card,.plan-choice,.offer-panel,.vip-card,.return-card) :is(.btn-secondary,.btn-light,.btn-outline){
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#FFFFFF!important;
+}
+
+/* Recommended badge: explicit contrast in both themes. */
+body.page-pricing .plan-choice em,
+body.page-pricing .popular-tag{
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+  opacity:1!important;
+}
+body.page-pricing .plan-choice em *,
+body.page-pricing .popular-tag *{color:#FFFFFF!important}
+
+/* Pricing CTA is permanently full-width primary in both themes. */
+body.page-pricing .cta-section,
+body.page-pricing .pricing-cta,
+body.page-pricing .pricing-final,
+body.page-pricing .pricing-footer-cta{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  border-radius:0!important;
+}
+body.page-pricing :is(.cta-section,.pricing-cta,.pricing-final,.pricing-footer-cta) :is(h1,h2,h3,h4,p,span,small,strong,.eyebrow,.new-kicker){
+  color:#FFFFFF!important;
+  opacity:1!important;
+}
+body.page-pricing :is(.cta-section,.pricing-cta,.pricing-final,.pricing-footer-cta) .btn{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#FFFFFF!important;
+}
+
+/* === Pricing CTA button: explicit Light Mode visibility === */
+body:not(.dark).page-pricing .cta-section .cta > a.btn,
+body:not(.dark).page-pricing .cta-section a.btn,
+body:not(.dark).page-pricing :is(.pricing-cta,.pricing-final,.pricing-footer-cta) a.btn {
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border:2px solid #FFFFFF!important;
+  opacity:1!important;
+  visibility:visible!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  min-height:46px!important;
+  padding:.82rem 1.15rem!important;
+  border-radius:12px!important;
+  text-decoration:none!important;
+}
+body:not(.dark).page-pricing .cta-section .cta > a.btn:hover,
+body:not(.dark).page-pricing .cta-section a.btn:hover,
+body:not(.dark).page-pricing :is(.pricing-cta,.pricing-final,.pricing-footer-cta) a.btn:hover {
+  background:#FFFFFF!important;
+  color:#173f67!important;
+  border-color:#FFFFFF!important;
+  transform:translateY(-2px)!important;
+}
+body:not(.dark).page-pricing .cta-section .cta > a.btn *,
+body:not(.dark).page-pricing .cta-section a.btn *,
+body:not(.dark).page-pricing :is(.pricing-cta,.pricing-final,.pricing-footer-cta) a.btn * {
+  color:inherit!important;
+  fill:currentColor!important;
+  stroke:currentColor!important;
+}
+
+/* === Dashboard Light Mode text visibility fix ===
+   Explicit Light Mode colors so dashboard text cannot inherit dark-mode/pale values.
+*/
+body:not(.dark).redesigned-app,
+body:not(.dark).redesigned-app .app-shell,
+body:not(.dark).redesigned-app .app-main,
+body:not(.dark).redesigned-app .dashboard-main,
+body:not(.dark).redesigned-app .app-content{
+  background:#FFFFFF!important;
+  color:#000000!important;
+}
+
+body:not(.dark).redesigned-app :is(h1,h2,h3,h4,h5,h6,strong,b,label,.metric-value,.dashboard-title,.card-title,.plan-title,.course-title,.side-nav a,.dashboard-nav a){
+  color:#000000!important;
+  opacity:1!important;
+}
+
+body:not(.dark).redesigned-app :is(p,small,span,.muted,.metric-label,.metric-note,.dashboard-subtitle,.card-copy,.plan-meta,.course-meta,.helper-text){
+  color:#000000!important;
+  opacity:1!important;
+}
+
+body:not(.dark).redesigned-app :is(.eyebrow,.section-label,.kicker,.overline,.status-label,.side-nav .section-title,.dashboard-nav .section-title,.metric-accent,.primary-text,.text-link){
+  color:#173f67!important;
+  opacity:1!important;
+}
+
+body:not(.dark).redesigned-app :is(.dash-card,.dashboard-card,.metric-card,.plan-card,.course-panel,.content-card,.panel,.widget-card){
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+
+body:not(.dark).redesigned-app :is(.dash-card,.dashboard-card,.metric-card,.plan-card,.course-panel,.content-card,.panel,.widget-card) :is(h1,h2,h3,h4,h5,h6,p,span,small,strong,b,label){
+  color:#000000!important;
+  opacity:1!important;
+}
+
+body:not(.dark).redesigned-app :is(.badge,.pill,.status-pill,.progress-badge,.metric-badge,.side-nav a.active,.dashboard-nav a.active,[aria-current="page"]){
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+
+body:not(.dark).redesigned-app :is(.badge,.pill,.status-pill,.progress-badge,.metric-badge,.side-nav a.active,.dashboard-nav a.active,[aria-current="page"]) *{
+  color:#FFFFFF!important;
+  fill:currentColor!important;
+  stroke:currentColor!important;
+}
+
+body:not(.dark).redesigned-app :is(.progress-track,.progress-bar-track,.meter-track){
+  background:#FFFFFF!important;
+  border:1px solid #173f67!important;
+}
+body:not(.dark).redesigned-app :is(.progress-track,.progress-bar-track,.meter-track) > *,
+body:not(.dark).redesigned-app :is(.progress-fill,.progress-value,.meter-fill){
+  background:#173f67!important;
+}
+
+body:not(.dark).redesigned-app .icon-btn,
+body:not(.dark).redesigned-app .rtl-toggle{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+body:not(.dark).redesigned-app .icon-btn svg{
+  color:#000000!important;
+  stroke:currentColor!important;
+}
+
+body:not(.dark).redesigned-app input,
+body:not(.dark).redesigned-app select,
+body:not(.dark).redesigned-app textarea{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+body:not(.dark).redesigned-app input::placeholder,
+body:not(.dark).redesigned-app textarea::placeholder{
+  color:#000000!important;
+  opacity:.75!important;
+}
+
+body:not(.dark).redesigned-app .btn-primary{
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+body:not(.dark).redesigned-app .btn-secondary,
+body:not(.dark).redesigned-app .btn-light,
+body:not(.dark).redesigned-app .btn-outline{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+
+/* === DASHBOARD LIGHT MODE FINAL CONTRAST AUDIT ===
+   Explicit workspace hierarchy. This intentionally beats older component rules.
+   Palette: white / black / #173f67 only.
+*/
+body.redesigned-app:not(.dark){
+  --primary:#173f67!important;
+  --primary2:#173f67!important;
+  --accent:#173f67!important;
+  --secondary:#173f67!important;
+  --success:#173f67!important;
+  --ink:#000000!important;
+  --muted:#000000!important;
+  --surface:#FFFFFF!important;
+  --bg:#FFFFFF!important;
+  --line:#173f67!important;
+  background:#FFFFFF!important;
+  color:#000000!important;
+}
+
+/* Main workspace and top bar: everything readable by default. */
+body.redesigned-app:not(.dark) :is(.app-main,.app-topbar,.app-content),
+body.redesigned-app:not(.dark) :is(.app-main,.app-topbar,.app-content) *{
+  color:#000000!important;
+  text-shadow:none!important;
+  -webkit-text-fill-color:currentColor!important;
+  opacity:1!important;
+}
+body.redesigned-app:not(.dark) :is(.app-main,.app-topbar,.app-content) svg{
+  color:inherit!important;
+  stroke:currentColor!important;
+}
+
+/* White workspace surfaces. */
+body.redesigned-app:not(.dark) .app-content :is(
+  .stat,.panel,.dash-card,.dashboard-card,.chart-box,.table-wrap,
+  .course-card,.resource-card,.result-card,.exam-card,.profile-card,
+  .analytics-card,.filter-panel,.info-card,.sidebar-card,.widget-card,
+  .test-layout,.question-palette,.form-grid,.field
+){
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+
+/* Primary accent text only. */
+body.redesigned-app:not(.dark) :is(
+  .eyebrow,.section-label,.kicker,.overline,.side-label,
+  .text-link,.course-status,.status-label,.metric-accent,
+  .primary-text,.stat .eyebrow,.panel .eyebrow
+){
+  color:#173f67!important;
+  -webkit-text-fill-color:#173f67!important;
+}
+
+/* Sidebar stays black; only its small section labels are primary. */
+body.redesigned-app:not(.dark) .app-sidebar,
+body.redesigned-app:not(.dark) .app-sidebar *{
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:currentColor!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+body.redesigned-app:not(.dark) .app-sidebar{
+  background:#000000!important;
+  border-color:#173f67!important;
+}
+body.redesigned-app:not(.dark) .app-sidebar .side-label{
+  color:#173f67!important;
+  -webkit-text-fill-color:#173f67!important;
+}
+body.redesigned-app:not(.dark) .app-sidebar .side-nav a{
+  background:#000000!important;
+  color:#FFFFFF!important;
+}
+body.redesigned-app:not(.dark) .app-sidebar .side-nav a.active,
+body.redesigned-app:not(.dark) .app-sidebar .side-nav a:hover,
+body.redesigned-app:not(.dark) .app-sidebar .side-nav a[aria-current="page"]{
+  background:#173f67!important;
+  color:#FFFFFF!important;
+}
+body.redesigned-app:not(.dark) .app-sidebar .side-nav a *{
+  color:inherit!important;
+  -webkit-text-fill-color:currentColor!important;
+}
+
+/* Primary-filled UI always has white foreground. */
+body.redesigned-app:not(.dark) :is(
+  .badge,.badge.green,.badge.red,.chip,.pill,.status-pill,.stat-chip,
+  .progress-badge,.metric-badge,.filter-btn.active,.answer.active,
+  .qnum.current,.qnum.answered,.qnum.review,.btn-primary,
+  .side-nav a.active,.dashboard-nav a.active,[aria-current="page"]
+){
+  background:#173f67!important;
+  border-color:#173f67!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+body.redesigned-app:not(.dark) :is(
+  .badge,.badge.green,.badge.red,.chip,.pill,.status-pill,.stat-chip,
+  .progress-badge,.metric-badge,.filter-btn.active,.answer.active,
+  .qnum.current,.qnum.answered,.qnum.review,.btn-primary,
+  .side-nav a.active,.dashboard-nav a.active,[aria-current="page"]
+) *{
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  fill:currentColor!important;
+  stroke:currentColor!important;
+}
+
+/* Secondary/light actions: white card-style control with black label. */
+body.redesigned-app:not(.dark) :is(.btn-light,.btn-secondary,.btn-outline,.filter-btn:not(.active),.answer:not(.active)){
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+  -webkit-text-fill-color:#000000!important;
+}
+
+/* Progress / graph tracks and fills. */
+body.redesigned-app:not(.dark) :is(.progressbar,.progress,.mini-progress,.bar,.chart-col){
+  color:#000000!important;
+}
+body.redesigned-app:not(.dark) :is(.progressbar,.progress,.mini-progress){
+  background:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+body.redesigned-app:not(.dark) :is(.progressbar span,.progress span,.mini-progress i,.bar i,.chart-col i){
+  background:#173f67!important;
+}
+
+/* Tables and form controls. */
+body.redesigned-app:not(.dark) .app-content :is(table,thead,tbody,tr,th,td){
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+body.redesigned-app:not(.dark) .app-content :is(input,select,textarea){
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+  -webkit-text-fill-color:#000000!important;
+}
+body.redesigned-app:not(.dark) .app-content :is(input,textarea)::placeholder{
+  color:#000000!important;
+  opacity:.72!important;
+  -webkit-text-fill-color:#000000!important;
+}
+
+/* Top-bar utilities remain visible. */
+body.redesigned-app:not(.dark) .app-topbar :is(.icon-btn,.rtl-toggle,.avatar,.dashboard-menu){
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+  -webkit-text-fill-color:#000000!important;
+}
+body.redesigned-app:not(.dark) .app-topbar :is(.icon-btn,.rtl-toggle,.avatar,.dashboard-menu) *{
+  color:inherit!important;
+  -webkit-text-fill-color:currentColor!important;
+}
+
+/* === MY COURSES LIGHT MODE CARD CONTRAST FIX ===
+   The global dashboard light-mode reset makes workspace text black.
+   Course cover panels are intentionally black, so restore white foreground there.
+*/
+body.redesigned-app:not(.dark) .app-content .course-card{
+  background:#FFFFFF!important;
+  color:#000000!important;
+  border-color:#173f67!important;
+}
+body.redesigned-app:not(.dark) .app-content .course-card .course-cover,
+body.redesigned-app:not(.dark) .app-content .course-card .course-cover.alt{
+  background:#000000!important;
+  color:#FFFFFF!important;
+  border-bottom-color:#173f67!important;
+}
+body.redesigned-app:not(.dark) .app-content .course-card .course-cover :is(h1,h2,h3,h4,p,span,strong,b,small){
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  opacity:1!important;
+}
+body.redesigned-app:not(.dark) .app-content .course-card .course-cover .course-status{
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+body.redesigned-app:not(.dark) .app-content .course-card .course-body,
+body.redesigned-app:not(.dark) .app-content .course-card .course-body :is(h1,h2,h3,h4,p,span,strong,b,small){
+  background:#FFFFFF!important;
+  color:#000000!important;
+  -webkit-text-fill-color:#000000!important;
+  opacity:1!important;
+}
+body.redesigned-app:not(.dark) .app-content .course-card .course-progress-row b{
+  color:#173f67!important;
+  -webkit-text-fill-color:#173f67!important;
+}
+body.redesigned-app:not(.dark) .app-content .course-card .progressbar{
+  background:#FFFFFF!important;
+  border:1px solid #173f67!important;
+}
+body.redesigned-app:not(.dark) .app-content .course-card .progressbar > span{
+  background:#173f67!important;
+}
+body.redesigned-app:not(.dark) .app-content .course-card .btn-primary{
+  background:#173f67!important;
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  border-color:#173f67!important;
+}
+body.redesigned-app:not(.dark) .app-content .course-card .btn-primary *{
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+}
+
+/* Dashboard dark-mode HUD label visibility fix */
+body.redesigned-app.dark .app-content::before,
+body.dark.redesigned-app .app-content::before,
+body.dark .app-content::before{
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+
+/* === Clean heading-background upload system ===
+   User uploads new images to assets/images/heading-backgrounds/<page>.jpg
+   This does not change the existing hero layout/content structure.
+*/
+.new-hero,
+.pv-hero{
+  position:relative;
+  isolation:isolate;
+  background-image:
+    linear-gradient(rgba(255,255,255,.90),rgba(255,255,255,.90)),
+    var(--page-heading-image)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+}
+body.dark .new-hero,
+body.dark .pv-hero{
+  background-image:
+    linear-gradient(rgba(0,0,0,.84),rgba(0,0,0,.84)),
+    var(--page-heading-image)!important;
+}
+
+/* === Preparation Journal: dark-mode visibility + primary-only accents === */
+body.page-blog.dark main,
+body.page-blog.dark .section,
+body.page-blog.dark .page-hero,
+body.page-blog.dark .blog-card,
+body.page-blog.dark .journey-strip article,
+body.page-blog.dark .fame-grid article,
+body.page-blog.dark .result-modal-card {
+  background:#000!important;
+  color:#fff!important;
+}
+body.page-blog.dark :is(h1,h2,h3,h4,p,li,small,strong,b,.lead,.muted,.breadcrumbs,.blog-body a,.journey-strip button) {
+  color:#fff!important;
+  opacity:1!important;
+}
+body.page-blog.dark :is(.eyebrow,.badge) {
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+  opacity:1!important;
+}
+body.page-blog.dark :is(.blog-card,.journey-strip article,.fame-avatar,.result-modal-card,.selection-counts article) {
+  border-color:#173f67!important;
+  box-shadow:none!important;
+}
+body.page-blog.dark .selection-counts article {
+  background:#000!important;
+}
+body.page-blog.dark .selection-counts article :is(span,strong,small) {
+  color:#fff!important;
+  opacity:1!important;
+}
+body.page-blog.dark .selection-counts article strong,
+body.page-blog.dark .fame-grid strong,
+body.page-blog.dark .blog-body a,
+body.page-blog.dark .journey-strip article h3 {
+  color:#fff!important;
+}
+body.page-blog.dark .filter-btn {
+  background:#000!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+}
+body.page-blog.dark .filter-btn.active,
+body.page-blog.dark .filter-btn:hover {
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+}
+
+/* Wall of Fame: clean normal circles + subtle motion */
+body.page-blog .fame-avatar {
+  width:132px!important;
+  height:132px!important;
+  aspect-ratio:1/1!important;
+  padding:0!important;
+  border:3px solid #173f67!important;
+  border-radius:50%!important;
+  overflow:hidden!important;
+  background:#fff!important;
+  box-shadow:none!important;
+  animation:fameFloat 4.6s ease-in-out infinite;
+}
+body.page-blog .fame-avatar::before,
+body.page-blog .fame-avatar::after {
+  content:none!important;
+  display:none!important;
+}
+body.page-blog .fame-avatar img {
+  width:100%!important;
+  height:100%!important;
+  aspect-ratio:1/1!important;
+  object-fit:cover!important;
+  border-radius:50%!important;
+  transition:transform .45s ease!important;
+}
+body.page-blog .fame-grid article:nth-child(2n) .fame-avatar {animation-delay:.35s}
+body.page-blog .fame-grid article:nth-child(3n) .fame-avatar {animation-delay:.7s}
+body.page-blog .fame-grid article:hover .fame-avatar img {transform:scale(1.07)!important}
+@keyframes fameFloat {
+  0%,100% {transform:translateY(0)}
+  50% {transform:translateY(-7px)}
+}
+@media (max-width:760px){
+  body.page-blog .fame-avatar{width:116px!important;height:116px!important}
+}
+@media (prefers-reduced-motion:reduce){
+  body.page-blog .fame-avatar{animation:none!important}
+  body.page-blog .fame-avatar img{transition:none!important}
+}
+
+/* === Preparation Journal image/layout recheck pass ===
+   Fixes: oversized/uneven images, full-width eyebrow bars, blank journey buttons,
+   uneven article grid and responsive image/card sizing.
+*/
+body.page-blog .section,
+body.page-blog .page-hero{overflow:hidden}
+
+/* Page hero media: consistent, responsive, never stretched. */
+body.page-blog .visual-image-box{
+  width:100%!important;
+  max-width:980px!important;
+  margin:28px auto 0!important;
+  border-radius:22px!important;
+  overflow:hidden!important;
+  aspect-ratio:16/7!important;
+  min-height:0!important;
+}
+body.page-blog .visual-image-box img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  display:block!important;
+}
+
+/* Article grid: use all available desktop space; no lonely fourth card. */
+body.page-blog .blog-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:20px!important;
+  align-items:stretch!important;
+}
+body.page-blog .blog-card{
+  height:100%!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+body.page-blog .blog-card .blog-image,
+body.page-blog .blog-card .image-slot{
+  width:100%!important;
+  aspect-ratio:16/9!important;
+  height:auto!important;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+body.page-blog .blog-card .blog-image img,
+body.page-blog .blog-card .image-slot img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+body.page-blog .blog-body{
+  flex:1!important;
+  display:flex!important;
+  flex-direction:column!important;
+  padding:20px!important;
+}
+body.page-blog .blog-body a{margin-top:auto!important;padding-top:14px!important}
+
+/* Section labels should be text accents, never full-width colored bars. */
+body.page-blog .section > .container > .eyebrow,
+body.page-blog .section .container > .eyebrow,
+body.page-blog .page-hero .eyebrow{
+  display:inline-block!important;
+  width:auto!important;
+  max-width:100%!important;
+  background:transparent!important;
+  padding:0!important;
+  border:0!important;
+  color:#173f67!important;
+  line-height:1.4!important;
+}
+body.page-blog.dark .section > .container > .eyebrow,
+body.page-blog.dark .section .container > .eyebrow,
+body.page-blog.dark .page-hero .eyebrow{
+  background:transparent!important;
+  color:#fff!important;
+  border:0!important;
+}
+
+/* Job-selection story cards: compact, equal, image visible and button readable. */
+body.page-blog .journey-strip{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:20px!important;
+  align-items:stretch!important;
+}
+body.page-blog .journey-strip article{
+  min-height:0!important;
+  height:auto!important;
+  padding:28px 24px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:12px!important;
+}
+body.page-blog .journey-strip img{
+  width:152px!important;
+  height:152px!important;
+  aspect-ratio:1/1!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:50%!important;
+  flex:0 0 auto!important;
+}
+body.page-blog .journey-strip article h3,
+body.page-blog .journey-strip article p{margin:0!important;text-align:center!important}
+body.page-blog .journey-strip .journey-btn{
+  margin-top:10px!important;
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+  opacity:1!important;
+  min-width:150px!important;
+}
+body.page-blog .journey-strip .journey-btn:hover{
+  background:#000!important;
+  color:#fff!important;
+  border-color:#fff!important;
+}
+body.page-blog.dark .journey-strip .journey-btn{
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+}
+
+/* Wall of Fame: clean heading + true circular photos, no rings/bands. */
+body.page-blog .fame-grid{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:26px!important;
+  margin-top:34px!important;
+}
+body.page-blog .fame-grid article{
+  min-height:0!important;
+  height:auto!important;
+  padding:18px 12px!important;
+  text-align:center!important;
+}
+body.page-blog .fame-grid article h3{margin:14px 0 6px!important}
+body.page-blog .fame-grid article p{margin:0 0 5px!important}
+body.page-blog .fame-grid article strong,
+body.page-blog .fame-grid article small{margin-top:4px!important}
+
+/* Selection statistic cards: no stretched image/card-like blank areas. */
+body.page-blog .selection-counts{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:18px!important;
+}
+body.page-blog .selection-counts article{
+  min-height:0!important;
+  height:auto!important;
+  padding:24px 18px!important;
+}
+
+/* Dark mode: only black, white and exact primary navy. */
+body.page-blog.dark .blog-card,
+body.page-blog.dark .journey-strip article,
+body.page-blog.dark .fame-grid article,
+body.page-blog.dark .selection-counts article{
+  background:#000!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+}
+body.page-blog.dark :is(.blog-card,.journey-strip article,.fame-grid article,.selection-counts article) :is(h2,h3,h4,p,small,strong,b,a){
+  color:#fff!important;
+  opacity:1!important;
+}
+body.page-blog.dark .blog-body .badge,
+body.page-blog.dark .filter-btn.active{
+  background:#173f67!important;
+  color:#fff!important;
+  border-color:#173f67!important;
+}
+
+@media(max-width:1100px){
+  body.page-blog .blog-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body.page-blog .fame-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body.page-blog .selection-counts{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:760px){
+  body.page-blog .visual-image-box{aspect-ratio:4/3!important;border-radius:16px!important}
+  body.page-blog .blog-grid,
+  body.page-blog .journey-strip,
+  body.page-blog .fame-grid,
+  body.page-blog .selection-counts{grid-template-columns:1fr!important}
+  body.page-blog .journey-strip article{padding:24px 18px!important}
+  body.page-blog .journey-strip img{width:128px!important;height:128px!important}
+  body.page-blog .blog-body{padding:18px!important}
+}
+
+/* =========================================================
+   CONTACT PAGE — FINAL LIGHT/DARK CONTRAST + PERSISTENT CTA
+   Palette: black / white / primary navy only.
+   ========================================================= */
+body.page-contact{
+  --contact-primary:#173f67;
+  --contact-black:#000000;
+  --contact-white:#FFFFFF;
+}
+
+/* Light mode: white surfaces + solid black copy + primary accents. */
+body:not(.dark).page-contact :is(.section,#contact-form,.panel,.contact-form-panel){
+  background:var(--contact-white)!important;
+  color:var(--contact-black)!important;
+}
+body:not(.dark).page-contact :is(h1,h2,h3,h4,p,label,.field span,.muted,.small,.form-msg){
+  color:var(--contact-black)!important;
+  opacity:1!important;
+}
+body:not(.dark).page-contact :is(.eyebrow,.breadcrumbs,a:not(.btn)){
+  color:var(--contact-primary)!important;
+  opacity:1!important;
+}
+body:not(.dark).page-contact :is(input,textarea,select){
+  background:var(--contact-white)!important;
+  color:var(--contact-black)!important;
+  border-color:var(--contact-primary)!important;
+}
+body:not(.dark).page-contact :is(input,textarea)::placeholder{
+  color:var(--contact-black)!important;
+  opacity:.75!important;
+}
+
+/* Dark mode: black surfaces, white readable copy, exact primary accents only. */
+body.dark.page-contact,
+body.dark.page-contact main,
+body.dark.page-contact :is(.section,#contact-form,.panel,.contact-form-panel){
+  background:var(--contact-black)!important;
+  color:var(--contact-white)!important;
+}
+body.dark.page-contact :is(h1,h2,h3,h4,p,label,.field span,.muted,.small,.form-msg){
+  color:var(--contact-white)!important;
+  opacity:1!important;
+}
+body.dark.page-contact :is(.eyebrow,.breadcrumbs,a:not(.btn)){
+  color:var(--contact-primary)!important;
+  opacity:1!important;
+}
+body.dark.page-contact :is(input,textarea,select){
+  background:var(--contact-black)!important;
+  color:var(--contact-white)!important;
+  border:1px solid var(--contact-primary)!important;
+}
+body.dark.page-contact :is(input,textarea)::placeholder{
+  color:var(--contact-white)!important;
+  opacity:.72!important;
+}
+body.dark.page-contact .contact-form-panel{
+  border-color:var(--contact-primary)!important;
+  box-shadow:none!important;
+}
+body.dark.page-contact .btn-primary{
+  background:var(--contact-primary)!important;
+  border-color:var(--contact-primary)!important;
+  color:var(--contact-white)!important;
+}
+
+/* Contact CTA: primary navy at all times, unaffected by theme. */
+body.page-contact .cta-section,
+body:not(.dark).page-contact .cta-section,
+body.dark.page-contact .cta-section{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  background:var(--contact-primary)!important;
+  color:var(--contact-white)!important;
+  padding-block:clamp(38px,5vw,68px)!important;
+}
+body.page-contact .cta-section>.container{
+  width:min(100% - 32px,1440px)!important;
+  max-width:1440px!important;
+  margin-inline:auto!important;
+}
+body.page-contact .cta-section .cta{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  gap:clamp(22px,4vw,52px)!important;
+  align-items:center!important;
+}
+body.page-contact .cta-section :is(h1,h2,h3,h4,p,.eyebrow,.new-kicker,span,strong){
+  color:var(--contact-white)!important;
+  opacity:1!important;
+}
+body.page-contact .cta-section .btn,
+body:not(.dark).page-contact .cta-section .btn,
+body.dark.page-contact .cta-section .btn{
+  background:var(--contact-white)!important;
+  color:var(--contact-black)!important;
+  border:2px solid var(--contact-white)!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+body.page-contact .cta-section .btn:hover{
+  background:var(--contact-primary)!important;
+  color:var(--contact-white)!important;
+  border-color:var(--contact-white)!important;
+}
+
+@media(max-width:820px){
+  body.page-contact .cta-section .cta{
+    grid-template-columns:1fr!important;
+    text-align:center!important;
+  }
+  body.page-contact .cta-section .cta .btn{
+    justify-self:center!important;
+    width:min(100%,320px)!important;
+  }
+}
+
+/* === Heading background visibility fix ===
+   Keep uploaded heading images visibly present instead of hiding them
+   behind overly opaque theme overlays. This block is intentionally last
+   so older background shorthands cannot override the upload paths.
+*/
+.new-hero,
+.pv-hero {
+  background-color:#FFFFFF!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.64),rgba(255,255,255,.64)),
+    var(--page-heading-image)!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+}
+body.dark .new-hero,
+body.dark .pv-hero {
+  background-color:#000000!important;
+  background-image:
+    linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),
+    var(--page-heading-image)!important;
+}
+
+/* Generic inner-page heading sections with white text. */
+.page-hero.new-page-hero {
+  background-color:#173f67!important;
+  background-image:
+    linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.48)),
+    var(--page-heading-image)!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+}
+body.dark .page-hero.new-page-hero {
+  background-image:
+    linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),
+    var(--page-heading-image)!important;
+}
+
+/* Inner-page editorial heroes that use dark text in light mode. */
+body.page-courses .catalog-intro,
+body.page-instructors .faculty-hero,
+body.page-resources .resource-hero,
+body.page-results .results-hero,
+.dv-hero,
+.bento-profile-hero {
+  background-color:#FFFFFF!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.68),rgba(255,255,255,.68)),
+    var(--page-heading-image)!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+}
+body.dark.page-courses .catalog-intro,
+body.dark.page-instructors .faculty-hero,
+body.dark.page-resources .resource-hero,
+body.dark.page-results .results-hero,
+body.dark .dv-hero,
+body.dark .bento-profile-hero {
+  background-color:#000000!important;
+  background-image:
+    linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.62)),
+    var(--page-heading-image)!important;
+}
+
+/* Keep heading background images responsive and visible on small screens. */
+@media (max-width: 767px) {
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero {
+    background-position:center center!important;
+    background-size:cover!important;
+  }
+}
+
+/* ============================================================
+   HARD FIX: HEADING IMAGE LAYER
+   The image is drawn on ::before so legacy background shorthands
+   cannot hide it. Overlay is a separate ::after layer.
+   Upload files to assets/images/heading-backgrounds/<page>.jpg
+   ============================================================ */
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+){
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background-image:none!important;
+}
+
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+)::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:-2!important;
+  pointer-events:none!important;
+  background-image:var(--page-heading-image)!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  opacity:1!important;
+}
+
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+)::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+  background:rgba(255,255,255,.24)!important;
+}
+
+body.dark :is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+)::after{
+  background:rgba(0,0,0,.42)!important;
+}
+
+/* Inner page heroes that are designed with white type need a slightly
+   darker overlay in light mode to keep the text readable. */
+.page-hero.new-page-hero::after{
+  background:rgba(0,0,0,.34)!important;
+}
+body.dark .page-hero.new-page-hero::after{
+  background:rgba(0,0,0,.50)!important;
+}
+
+/* Ensure the real hero content is always above both image layers. */
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+) > *{
+  position:relative!important;
+  z-index:1!important;
+}
+
+/* Page-hero text is explicitly readable over its photograph. */
+.page-hero.new-page-hero :is(h1,h2,h3,p,.eyebrow,.breadcrumb,.breadcrumbs,a){
+  color:#FFFFFF!important;
+  -webkit-text-fill-color:#FFFFFF!important;
+  opacity:1!important;
+}
+
+/* Mobile/tablet image handling */
+@media(max-width:1024px){
+  :is(
+    .new-hero,
+    .pv-hero,
+    .page-hero.new-page-hero,
+    body.page-courses .catalog-intro,
+    body.page-instructors .faculty-hero,
+    body.page-resources .resource-hero,
+    body.page-results .results-hero,
+    .dv-hero,
+    .bento-profile-hero
+  )::before{
+    background-size:cover!important;
+    background-position:center!important;
+  }
+}
+
+/* ============================================================
+   REAL FIX: HEADING IMAGE STACKING ORDER
+   Previous ::before used a negative z-index, which placed the
+   image behind the section's own background paint. Keep the
+   image inside the section stacking context instead.
+   ============================================================ */
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+){
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+)::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  display:block!important;
+  pointer-events:none!important;
+  background-image:var(--page-heading-image)!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  opacity:1!important;
+}
+
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+)::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  pointer-events:none!important;
+  background:rgba(255,255,255,.34)!important;
+}
+
+body.dark :is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+)::after{
+  background:rgba(0,0,0,.52)!important;
+}
+
+/* Put every actual hero child above image and overlay layers. */
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+) > *{
+  position:relative!important;
+  z-index:2!important;
+}
+
+/* Keep readable text above uploaded photographs. */
+body:not(.dark) :is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+) :is(h1,h2,h3,p,.new-kicker,.catalog-overline,.bento-kicker,.dv-kicker){
+  text-shadow:0 1px 2px rgba(255,255,255,.38);
+}
+body.dark :is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+) :is(h1,h2,h3,p,.new-kicker,.catalog-overline,.bento-kicker,.dv-kicker){
+  color:#fff!important;
+  text-shadow:0 1px 3px rgba(0,0,0,.45);
+}
+
+/* ============================================================
+   DOM HEADING IMAGE LAYER — VERIFIED FALLBACK
+   Real element inside each heading section; cannot be hidden by
+   legacy section background shorthands.
+   ============================================================ */
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+){
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background-image:none!important;
+}
+
+/* Disable all earlier pseudo background layers. */
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+)::before,
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+)::after{
+  content:none!important;
+  display:none!important;
+}
+
+.heading-image-layer{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  opacity:1!important;
+}
+.heading-image-layer::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,.34);
+}
+body.dark .heading-image-layer::after{
+  background:rgba(0,0,0,.44);
+}
+
+/* Hero content always above the image layer. */
+:is(
+  .new-hero,
+  .pv-hero,
+  .page-hero.new-page-hero,
+  body.page-courses .catalog-intro,
+  body.page-instructors .faculty-hero,
+  body.page-resources .resource-hero,
+  body.page-results .results-hero,
+  .dv-hero,
+  .bento-profile-hero
+) > :not(.heading-image-layer){
+  position:relative!important;
+  z-index:2!important;
+}
+
+/* Text remains readable over user-supplied photos. */
+body:not(.dark) :is(.new-hero,.pv-hero,.page-hero.new-page-hero,.catalog-intro,.faculty-hero,.resource-hero,.results-hero,.dv-hero,.bento-profile-hero){
+  color:#000!important;
+}
+body.dark :is(.new-hero,.pv-hero,.page-hero.new-page-hero,.catalog-intro,.faculty-hero,.resource-hero,.results-hero,.dv-hero,.bento-profile-hero){
+  color:#fff!important;
+}
+
+@media(max-width:767px){
+  .heading-image-layer{background-position:center center!important}
+}

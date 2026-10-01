@@ -1,0 +1,302 @@
+/* Requested CTA and logo colours only. Stable brand blue in both themes. */
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.cta,.faculty-match-box,.resource-final-card,.results-final-card,.bento-card) {
+  background: #173f67 !important;
+  background-image: none !important;
+  border-color: #173f67 !important;
+  color: #fff !important;
+}
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta::before,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta::after,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .cta::before,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .cta::after {
+  content: none !important;
+}
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(h2,h3,p,span,small,strong,em,a) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .btn,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .btn * {
+  background: #fff !important;
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+  border-color: #fff !important;
+}
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .btn:hover {
+  background: #edf2f7 !important;
+  border-color: #edf2f7 !important;
+}
+body .brand.brand.brand,
+body .brand.brand.brand :is(.brand-name,.brand-dot) {
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+}
+body .brand.brand.brand .brand-mark {
+  background: #173f67 !important;
+  background-image: none !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-color: #173f67 !important;
+}
+body .brand.brand.brand .brand-mark svg {
+  color: #fff !important;
+}
+
+/* Dark-mode toggle hover: prevent inherited light hover fills. */
+body.dark.dark :is(.icon-btn,.theme-toggle,.rtl-toggle,.menu-toggle,.dashboard-menu,.nav-drop-trigger):is(:hover,:active,:focus-visible),
+body.dark.dark .nav-dropdown:is(:hover,:focus-within,.open) > .nav-drop-trigger {
+  background: #173f67 !important;
+  background-image: none !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-color: #173f67 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+body.dark.dark :is(.icon-btn,.theme-toggle,.rtl-toggle,.menu-toggle,.dashboard-menu,.nav-drop-trigger):is(:hover,:active,:focus-visible) :is(svg,span),
+body.dark.dark .nav-dropdown:is(:hover,:focus-within,.open) > .nav-drop-trigger :is(svg,span) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Full-width CTA bands in light and dark modes; retain responsive content gutters. */
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  border-radius: 0 !important;
+  padding-inline: 0 !important;
+  box-sizing: border-box !important;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta > .container {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  padding-inline: clamp(20px, 4vw, 64px) !important;
+  box-sizing: border-box !important;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.cta,.faculty-match-box,.resource-final-card,.results-final-card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+/* Explicit idle state: the button must not depend on hover to become visible. */
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta a.btn {
+  display: inline-flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: #fff !important;
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+  border: 2px solid #fff !important;
+  position: relative;
+  z-index: 1;
+  min-height: 44px;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta a.btn:hover {
+  background: #edf2f7 !important;
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+}
+
+/* Screenshot fixes: dark navigation states and homepage performance preview. */
+body.dark.dark .site-header .navlinks a:is(:hover,:focus-visible,.active,[aria-current="page"]),
+body.dark.dark .site-header .nav-dropdown-menu a:is(:hover,:focus-visible,.active,[aria-current="page"]),
+body.dark.dark .site-header .mobile-menu a:is(:hover,:focus-visible,.active,[aria-current="page"]) {
+  background: #173f67 !important;
+  background-image: none !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: none !important;
+}
+body.dark.dark .new-mock-art {
+  background: #182638 !important;
+  background-image: none !important;
+  color: #fff !important;
+  border-color: #37516e !important;
+}
+body.dark.dark .new-mock-art :is(.mock-art-top,.mock-art-bottom),
+body.dark.dark .new-mock-art :is(.mock-art-top,.mock-art-bottom) :is(span,strong) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+body.dark.dark .new-mock-art .new-pill {
+  background: #173f67 !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-color: #adc6ee !important;
+}
+body.dark.dark .new-mock-art .mock-bars {
+  border-color: #7997bc !important;
+}
+body.dark.dark .new-mock-art .mock-bars > span {
+  background: #759ccc !important;
+  opacity: 1 !important;
+}
+body.dark.dark .new-mock-art .mock-bars > span:nth-child(even) {
+  background: #adc6ee !important;
+}
+
+/* Resources: keep practice steps and metadata readable on dark cards. */
+body.dark.dark .resource-item .resource-practice-steps > div,
+body.dark.dark .resource-item .resource-detail-grid > div {
+  background: #182638 !important;
+  background-image: none !important;
+  border-color: #37516e !important;
+  color: #fff !important;
+}
+body.dark.dark .resource-item :is(.resource-practice-steps,.resource-detail-grid) :is(b,span,strong,small) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+body.dark.dark .resource-item .resource-practice-steps > div > b,
+body.dark.dark .resource-item .resource-detail-grid > div > span {
+  color: #adc6ee !important;
+  -webkit-text-fill-color: #adc6ee !important;
+}
+
+/* Light mode: Selection community cards (border + labels were white-on-white) */
+body.page-blog:not(.dark) .selection-counts article {
+  background: #ffffff !important;
+  border: 2px solid #173f67 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 6px 18px rgba(23, 63, 103, .08) !important;
+}
+body.page-blog:not(.dark) .selection-counts article span {
+  color: #0b1220 !important;
+  -webkit-text-fill-color: #0b1220 !important;
+  opacity: 1 !important;
+}
+body.page-blog:not(.dark) .selection-counts article small {
+  color: #475569 !important;
+  -webkit-text-fill-color: #475569 !important;
+  opacity: 1 !important;
+}
+body.page-blog:not(.dark) .selection-counts article strong {
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+  opacity: 1 !important;
+}
+
+/* Resources + Results: tablet/mobile — stack cards one by one, no stretched blank space */
+@media (max-width: 900px) {
+  body.page-resources .bento-grid,
+  body.page-results .bento-grid,
+  body.page-results .milestone-grid,
+  body.page-results .journey-grid,
+  body.page-results .review-bento {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: auto !important;
+    align-items: start !important;
+    gap: 16px !important;
+  }
+  body.page-resources .bento-grid > *,
+  body.page-results .bento-grid > *,
+  body.page-results .milestone-grid > *,
+  body.page-results .journey-grid > *,
+  body.page-results .review-bento > * {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    align-self: start !important;
+  }
+  body.page-resources .resource-item .bento-text-link {
+    margin-top: 0 !important;
+    padding-top: 18px !important;
+  }
+  body.page-resources .bento-card-photo,
+  body.page-resources .resource-feature,
+  body.page-resources .resource-tool-photo {
+    min-height: 320px !important;
+  }
+}
+
+/* Resources (desktop): keep the tags row spaced consistently when a card has extra detail */
+@media (min-width: 901px) {
+  body.page-resources .resource-library .resource-item .bento-tags { margin-bottom: 4px; }
+}
+
+/* CTA bands: centre all content (heading, copy and buttons) */
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.cta,.faculty-match-box,.resource-final-card,.results-final-card) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: clamp(20px, 3vw, 32px) !important;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.cta,.faculty-match-box,.resource-final-card,.results-final-card) > div:first-child {
+  max-width: 820px;
+  margin-inline: auto;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(h2,p) {
+  margin-inline: auto !important;
+  text-align: center !important;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.bento-actions,.faculty-match-actions) {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100%;
+}
+
+/* Footer: full-width band, content spans edge to edge with the same gutters as the CTA */
+body .site-footer.site-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  box-sizing: border-box !important;
+}
+body .site-footer.site-footer > .container {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  padding-inline: clamp(20px, 4vw, 64px) !important;
+  box-sizing: border-box !important;
+}
+@media (min-width: 981px) {
+  body .site-footer.site-footer .footer-layout {
+    grid-template-columns: minmax(280px, 1.6fr) repeat(3, minmax(150px, 1fr)) !important;
+  }
+}
+
+/* Logo visibility: footer is always dark, so its wordmark must be light.
+   Header wordmark turns light in dark mode. */
+body .site-footer.site-footer .brand,
+body .site-footer.site-footer .brand :is(.brand-name,.brand-dot) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+body .site-footer.site-footer .brand .brand-mark {
+  background: #fff !important;
+  color: #173f67 !important;
+  border-color: #fff !important;
+}
+body .site-footer.site-footer .brand .brand-mark svg {
+  color: #173f67 !important;
+}
+body.dark.dark .site-header .brand,
+body.dark.dark .site-header .brand :is(.brand-name,.brand-dot) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+body.dark.dark .site-header .brand .brand-mark {
+  background: #fff !important;
+  color: #173f67 !important;
+  border-color: #fff !important;
+}
+body.dark.dark .site-header .brand .brand-mark svg {
+  color: #173f67 !important;
+}

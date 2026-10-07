@@ -1,0 +1,225 @@
+/* Requested CTA and logo colours only. Stable brand blue in both themes. */
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.cta,.faculty-match-box,.resource-final-card,.results-final-card,.bento-card) {
+  background: #173f67 !important;
+  background-image: none !important;
+  border-color: #173f67 !important;
+  color: #fff !important;
+}
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta::before,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta::after,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .cta::before,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .cta::after {
+  content: none !important;
+}
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(h2,h3,p,span,small,strong,em,a) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .btn,
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .btn * {
+  background: #fff !important;
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+  border-color: #fff !important;
+}
+body .primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .btn:hover {
+  background: #edf2f7 !important;
+  border-color: #edf2f7 !important;
+}
+body .brand.brand.brand,
+body .brand.brand.brand :is(.brand-name,.brand-dot) {
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+}
+body .brand.brand.brand .brand-mark {
+  background: #173f67 !important;
+  background-image: none !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-color: #173f67 !important;
+}
+body .brand.brand.brand .brand-mark svg {
+  color: #fff !important;
+}
+
+/* Dark-mode toggle hover: prevent inherited light hover fills. */
+body.dark.dark :is(.icon-btn,.theme-toggle,.rtl-toggle,.menu-toggle,.dashboard-menu,.nav-drop-trigger):is(:hover,:active,:focus-visible),
+body.dark.dark .nav-dropdown:is(:hover,:focus-within,.open) > .nav-drop-trigger {
+  background: #173f67 !important;
+  background-image: none !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-color: #173f67 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+body.dark.dark :is(.icon-btn,.theme-toggle,.rtl-toggle,.menu-toggle,.dashboard-menu,.nav-drop-trigger):is(:hover,:active,:focus-visible) :is(svg,span),
+body.dark.dark .nav-dropdown:is(:hover,:focus-within,.open) > .nav-drop-trigger :is(svg,span) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Full-width CTA bands in light and dark modes; retain responsive content gutters. */
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  border-radius: 0 !important;
+  padding-inline: 0 !important;
+  box-sizing: border-box !important;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta > .container {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  padding-inline: clamp(20px, 4vw, 64px) !important;
+  box-sizing: border-box !important;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.cta,.faculty-match-box,.resource-final-card,.results-final-card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box !important;
+}
+/* Explicit idle state: the button must not depend on hover to become visible. */
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta a.btn {
+  display: inline-flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: #fff !important;
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+  border: 2px solid #fff !important;
+  position: relative;
+  z-index: 1;
+  min-height: 44px;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta a.btn:hover {
+  background: #edf2f7 !important;
+  color: #173f67 !important;
+  -webkit-text-fill-color: #173f67 !important;
+}
+
+/* Screenshot fixes: dark navigation states and homepage performance preview. */
+body.dark.dark .site-header .navlinks a:is(:hover,:focus-visible,.active,[aria-current="page"]),
+body.dark.dark .site-header .nav-dropdown-menu a:is(:hover,:focus-visible,.active,[aria-current="page"]),
+body.dark.dark .site-header .mobile-menu a:is(:hover,:focus-visible,.active,[aria-current="page"]) {
+  background: #173f67 !important;
+  background-image: none !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  box-shadow: none !important;
+}
+body.dark.dark .new-mock-art {
+  background: #182638 !important;
+  background-image: none !important;
+  color: #fff !important;
+  border-color: #37516e !important;
+}
+body.dark.dark .new-mock-art :is(.mock-art-top,.mock-art-bottom),
+body.dark.dark .new-mock-art :is(.mock-art-top,.mock-art-bottom) :is(span,strong) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+body.dark.dark .new-mock-art .new-pill {
+  background: #173f67 !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-color: #adc6ee !important;
+}
+body.dark.dark .new-mock-art .mock-bars {
+  border-color: #7997bc !important;
+}
+body.dark.dark .new-mock-art .mock-bars > span {
+  background: #759ccc !important;
+  opacity: 1 !important;
+}
+body.dark.dark .new-mock-art .mock-bars > span:nth-child(even) {
+  background: #adc6ee !important;
+}
+
+/* Resources: keep practice steps and metadata readable on dark cards. */
+body.dark.dark .resource-item .resource-practice-steps > div,
+body.dark.dark .resource-item .resource-detail-grid > div {
+  background: #182638 !important;
+  background-image: none !important;
+  border-color: #37516e !important;
+  color: #fff !important;
+}
+body.dark.dark .resource-item :is(.resource-practice-steps,.resource-detail-grid) :is(b,span,strong,small) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+body.dark.dark .resource-item .resource-practice-steps > div > b,
+body.dark.dark .resource-item .resource-detail-grid > div > span {
+  color: #adc6ee !important;
+  -webkit-text-fill-color: #adc6ee !important;
+}
+
+/* Issue 2: Home 1 final CTA has one consistent centred alignment. */
+body main section.home-one-final-cta > .new-cta-inner {
+ display:flex!important; flex-direction:column!important; align-items:center!important;
+ justify-content:center!important; gap:24px!important; text-align:center!important;
+}
+body main section.home-one-final-cta .new-cta-inner > div { width:100%; min-width:0; }
+body main section.home-one-final-cta :is(.new-kicker,h2,p) { text-align:center!important; margin-inline:auto!important; }
+body main section.home-one-final-cta h2 { max-width:900px; }
+body main section.home-one-final-cta p { max-width:680px; }
+body main section.home-one-final-cta .new-cta-inner > .btn { align-self:center!important; flex-shrink:0; max-width:100%; white-space:normal; }
+
+/* Issue 3: Final CTA content shares a centred alignment on every page. */
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.new-kicker,.eyebrow,.catalog-overline,.bento-kicker,.dv-kicker,h2,p) {
+ text-align:center!important; margin-inline:auto!important;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.new-cta-inner,.pv-final-grid,.catalog-footer-cta > .container,.dv-cta-grid,.cta,.faculty-match-box,.resource-final-card,.results-final-card) {
+ display:flex!important; flex-direction:column!important; align-items:center!important; justify-content:center!important; gap:24px!important; text-align:center!important;
+}
+body main section.catalog-footer-cta.primary-footer-cta > .container {
+ display:flex!important; flex-direction:column!important; align-items:center!important; gap:24px!important; text-align:center!important;
+}
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.cta-content,.new-cta-inner > div,.pv-final-grid > div,.dv-cta-grid > div,.faculty-match-box > div,.resource-final-card > div,.results-final-card > div) { min-width:0; max-width:100%; text-align:center!important; }
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta :is(.bento-actions,.faculty-match-actions,.dv-cta-grid > div:last-child) { display:flex!important; flex-wrap:wrap!important; justify-content:center!important; align-items:center!important; gap:12px!important; }
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .btn { align-self:center!important; max-width:100%; white-space:normal!important; }
+
+/* Issue 4: Remove the About CTA's reserved vertical flex space. */
+body main section.about-final-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta {
+ padding-block:40px!important; min-height:0!important; height:auto!important;
+}
+body main section.about-final-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .cta {
+ min-height:0!important; height:auto!important; padding-block:0!important; gap:20px!important;
+}
+body main section.about-final-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .cta-content {
+ flex:0 0 auto!important; min-height:0!important; height:auto!important; margin-block:0!important;
+}
+
+/* Issue 5: visible current-page state in both themes. */
+body .site-header.site-header :is(.navlinks,.mobile-menu,.nav-actions) a.active,
+body .site-header.site-header .nav-drop-trigger.active {
+ background:#173f67!important; color:#fff!important; -webkit-text-fill-color:#fff!important;
+ border-radius:12px!important; box-shadow:none!important;
+}
+body .site-header.site-header :is(a.active,.nav-drop-trigger.active) svg { color:inherit!important; }
+
+body main section.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta.primary-footer-cta .cta-content { flex:0 0 auto!important; }
+
+/* Requested navigation spacing and lightweight hover motion. */
+body .site-header.site-header .nav-drop-trigger {
+ padding:10px 14px!important; gap:8px!important; display:inline-flex!important;
+ align-items:center!important; justify-content:center!important; line-height:1.2!important;
+}
+body .site-header.site-header :is(.nav-drop-trigger,.navlinks > a,.nav-actions .btn,.nav-actions .icon-btn) {
+ transition:transform .18s ease,background-color .18s ease,color .18s ease!important;
+}
+@media(hover:hover) {
+ body .site-header.site-header :is(.nav-drop-trigger,.navlinks > a,.nav-actions .btn,.nav-actions .icon-btn):hover { transform:translateY(-2px); }
+}
+@media(prefers-reduced-motion:reduce) {
+ body .site-header.site-header :is(.nav-drop-trigger,.navlinks > a,.nav-actions .btn,.nav-actions .icon-btn) { transition:none!important; transform:none!important; }
+}

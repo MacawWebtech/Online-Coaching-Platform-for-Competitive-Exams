@@ -1,0 +1,62 @@
+/* Heading photos: paths are in each page HTML, relative to that page.
+   Replace assets/images/heading-backgrounds/<page>.jpg to use your own photo. */
+body main section > .heading-image-layer.heading-image-layer.heading-image-layer {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+  pointer-events: none !important;
+}
+body main section > .heading-image-layer.heading-image-layer.heading-image-layer::after,
+body main section > .heading-image-layer.heading-image-layer.heading-image-layer::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+/* Text shadows protect legibility without tinting the full photograph. */
+body main section:has(> .heading-image-layer) :is(h1, h1 *, .breadcrumbs, .eyebrow),
+body main section:has(> .heading-image-layer) :is(.new-hero-copy, .pv-hero-grid > div:first-child, .catalog-intro-grid > div:first-child, .faculty-hero-copy, .dv-intro, .bento-heading) :is(p, .new-kicker, .catalog-overline, .dv-kicker, .bento-kicker) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  text-shadow: 0 2px 4px #000, 0 0 12px #000 !important;
+}
+body main .page-hero.new-page-hero > .container > p {
+  color: #fff !important;
+  text-shadow: 0 2px 4px #000, 0 0 12px #000 !important;
+}
+
+/* Light-mode benefit labels placed directly over heading photographs. */
+body:not(.dark) main section:has(> .heading-image-layer) :is(.new-hero-proof,.pv-hero-notes,.catalog-micro,.faculty-hero-index,.dv-meta),
+body:not(.dark) main section:has(> .heading-image-layer) :is(.new-hero-proof,.pv-hero-notes,.catalog-micro,.faculty-hero-index,.dv-meta) :is(span,b,strong,svg) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+  text-shadow: 0 2px 4px #000, 0 0 12px #000 !important;
+}
+body:not(.dark) main section:has(> .heading-image-layer) .new-hero-proof svg {
+  stroke: #fff !important;
+  filter: drop-shadow(0 1px 2px #000);
+}
+body:not(.dark) main section:has(> .heading-image-layer) .catalog-micro span::before {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Issue 7: Clean, consistent typography for all page hero headings. */
+body :is(.new-hero,.pv-hero,.page-hero,.catalog-intro,.resource-hero,.dv-hero,.bento-profile-hero,.results-hero,.faculty-hero) h1,
+body :is(.new-hero,.pv-hero,.page-hero,.catalog-intro,.resource-hero,.dv-hero,.bento-profile-hero,.results-hero,.faculty-hero) h1 :is(span,em,strong) {
+ font-family:Arial,Helvetica,sans-serif!important;
+ font-weight:600!important; font-style:normal!important;
+ letter-spacing:-.025em!important; line-height:1.15!important;
+ text-shadow:none!important; -webkit-text-stroke:0!important;
+}
